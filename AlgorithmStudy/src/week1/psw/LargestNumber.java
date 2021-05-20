@@ -23,7 +23,7 @@ numbers	return
  */
 public class LargestNumber {
 	public static void main(String[] args) {
-		int[] numbers = {6, 10, 2, 100000, 3, 30, 34, 5, 9, 99999, 99997};
+		int[] numbers = {10,10,10,10};
 		String answer = "";
 		
 		List<Integer> list = new ArrayList<Integer>();
@@ -38,6 +38,8 @@ public class LargestNumber {
 			sb.append(integer);
 		}
 		answer = sb.toString();
+		
+		if(answer.replaceAll("0", "").equals("")) answer = "0";
 		
 		System.out.println(answer);
 	}
