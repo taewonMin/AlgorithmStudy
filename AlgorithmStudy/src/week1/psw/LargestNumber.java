@@ -23,7 +23,7 @@ numbers	return
  */
 public class LargestNumber {
 	public static void main(String[] args) {
-		int[] numbers = {10,10,10,10};
+		int[] numbers = {3, 30, 34, 5, 9};
 		String answer = "";
 		
 		List<Integer> list = new ArrayList<Integer>();
@@ -40,52 +40,16 @@ public class LargestNumber {
 		answer = sb.toString();
 		
 		if(answer.replaceAll("0", "").equals("")) answer = "0";
-		
 		System.out.println(answer);
 	}
 }
+
 class MySort implements Comparator<Integer> {
-	
 	@Override
 	public int compare(Integer num1, Integer num2) {
-		int result = 0;
-		
-		int[] num1List = numSplit(num1);
-		int[] num2List = numSplit(num2);
-		
-		int minLength = Math.min(num1List.length, num2List.length);
-		for (int i = 0; i < minLength; i++) {
-			result = Integer.compare(num1List[i], num2List[i]);
-			if (result != 0) return -result;
-		}
-		
-		if(num1List.length != num2List.length) {
-			if(num1List.length > num2List.length) {
-				return Integer.compare(num1List[0],num1List[minLength]);
-			}else {
-				return Integer.compare(num1List[0],num2List[minLength]);
-			}
-		}
-		return result;
+		return -Integer.compare(Integer.valueOf(String.valueOf(num1)+String.valueOf(num2)),
+				 			   Integer.valueOf(String.valueOf(num2)+String.valueOf(num1))
+				 			   );
 	}
-	
-	
-	public int[] numSplit(int num) {
-		int size = 0;
-		int temp = num;
-		while (true) {
-			num /= 10;
-			size++;
-			if(num == 0) break;
-		}
-		
-		int[] list = new int[size];
-		for (int i = 0; i < list.length; i++) {
-			list[i] = Integer.parseInt(String.valueOf(String.valueOf(temp).charAt(i)));
-		}
-		
-		return list;
-	}
-	
 }
 
