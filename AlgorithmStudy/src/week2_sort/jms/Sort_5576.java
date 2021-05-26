@@ -3,10 +3,9 @@ package week2_sort.jms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
-public class Sort_5576 {
+public class Sort_5576 {//
 	public static void main(String[] args) {
 		List<Integer> listOfScore = new ArrayList<Integer>();
 		for (int i = 0; i < 20; i++) {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Sort_2750 {
+public class Sort_2750 {//
 	public static void main(String[] args) {
 		
 		int arr[] = {1,6,2,3,4,5,5};
@@ -21,6 +21,6 @@ public class Sort_2750 {
 		rowOfNum.sort(Comparator.naturalOrder());
 		
 		System.out.println(rowOfNum.toString());
-	
+	//
 	}
 }
