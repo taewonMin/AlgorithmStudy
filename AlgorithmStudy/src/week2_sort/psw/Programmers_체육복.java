@@ -79,11 +79,8 @@ public class Programmers_체육복 {
 				answer++;
 			}
 		}
-		
 		System.out.println(answer);
-		
 	}
-
 }
 
 class Student{
@@ -93,9 +90,7 @@ class Student{
 	boolean stolen = false;
 	boolean goClass = true;
 
-
 	public Student(int i) {
 		this.num=i+1;
 	}
-
 }
