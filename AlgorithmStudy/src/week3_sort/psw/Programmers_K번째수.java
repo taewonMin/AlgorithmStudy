@@ -26,5 +26,6 @@ public class Programmers_K번째수 {
 			}
 			answer[h]=temp[commands[h][2]-1];
 		}
+		
 	}
 }
