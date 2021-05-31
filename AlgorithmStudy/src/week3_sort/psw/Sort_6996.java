@@ -9,8 +9,8 @@ public class Sort_6996 {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		List<String> list = new ArrayList<String>();
+		sc.nextLine();
 		for (int i = 0; i < n; i++) {
-			sc = new Scanner(System.in);
 			String y = sc.nextLine();
 			String[] x = y.split(" ");
 			
@@ -43,7 +43,7 @@ public class Sort_6996 {
 		if(list1.size() != list2.size()) return "NOT anagrams.";
 		
 		for (int i = 0; i < list1.size(); i++) {
-			if (!list1.get(i).equals(list2.get(i))) {
+			if (list1.size() != 0 && !list1.get(i).equals(list2.get(i))) {
 				return "NOT anagrams.";
 			}
 		}
