@@ -24,7 +24,7 @@ class Solution {
 //        	answer[i] = temp[commands[i][2]-1];
 //        }
         
-        // 방법 2) 하드코딩!
+        // 방법 2) 하드코딩! - 시간효율 더 좋음
         for(int i=0; i<commands.length; i++){
             int tempLen = commands[i][1] - commands[i][0] + 1; // 잘라진 배열 길이
             int move = commands[i][0]-1;	// 시작위치
