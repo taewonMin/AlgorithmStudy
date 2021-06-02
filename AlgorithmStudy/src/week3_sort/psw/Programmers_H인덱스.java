@@ -33,6 +33,7 @@ public class Programmers_H인덱스 {
 				}
 			}
 		}
+		
 		if(list.get(0) > n) answer = n;
 		
 		System.out.println(answer);
