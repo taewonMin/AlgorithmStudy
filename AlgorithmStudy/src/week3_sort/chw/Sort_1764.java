@@ -1,51 +1,64 @@
 package week3_sort.chw;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Sort_1764 {
-
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
 		
-//		int n = in.nextInt();
-		int n = 6;
+		// 하드코딩 테스트
+		int noHeardPeopleCnt = 3;
+		int noSeePeopleCnt = 4;
+
+//		int noHeardPeopleCnt = in.nextInt();
+//		int noSeePeopleCnt = in.nextInt();
 		
-//		int[] arr = new int[n];
-//		
-//		for(int i = 0; i < n; i++) {
-//			arr[i] = in.nextInt();
+		int totalCnt = 0;
+
+		
+		
+		
+		List<String> noHeardPeople = new ArrayList<String>(); 
+		List<String> noSeePeople = new ArrayList<String>(); 
+		List<String> totalPeople = new ArrayList<String>(); 
+		
+//		for(int i = 0; i < noHeardPeopleCnt; i++) {
+//			noHeardPeople.add(in.next());
 //		}
-		int[] arr = {12, 7, 6, 8, 9, 10};
+//		for(int i = 0; i < noSeePeopleCnt; i++) {
+//			noSeePeople.add(in.next());
+//		}
 		
-		for(int k = 0; k <= n; k++) {
-			int kUp = 0;
-			int kDown = 0;
-			for(int i : arr) {
-				if(i >= k) {
-					kUp += 1;
-				}else {
-					kDown += 1;
+		
+		// 하드코딩 테스트
+		noHeardPeople.add("ohhenrie");
+		noHeardPeople.add("charlie");
+		noHeardPeople.add("baesangwook");
+		noSeePeople.add("obama");
+		noSeePeople.add("baesangwook");
+		noSeePeople.add("ohhenrie");
+		noSeePeople.add("clinton");
+		
+		
+		for(int i = 0; i < noSeePeople.size(); i++) {
+			for(int j = 0; j < noHeardPeople.size(); j++) {
+				if(noSeePeople.get(i).equals(noHeardPeople.get(j))) {
+					totalCnt += 1;
+					totalPeople.add(noSeePeople.get(i));
 				}
-			}
-			
-			
-			if(kUp >= k && kDown >= (n-k) ) {
-				System.out.println(k);
-				break;
 			}
 		}
 		
-		
-		// 논문의 개수 = cnt
-		// 출력값 = k
-		// k이상인 논문수  = kUp
-		// kDown
-		
-		
-		
-		
-		
+		System.out.println(totalCnt);
+		for(String people : totalPeople) {
+			System.out.println(people);
+			
+		}
 		
 	}
 }

@@ -1,8 +1,6 @@
 package week3_sort.chw;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Sort_6996 {

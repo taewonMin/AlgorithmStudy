@@ -1,64 +1,47 @@
 package week3_sort.chw;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 public class Sort_13333 {
-public static void main(String[] args) {
-		
+
+	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		// 하드코딩 테스트
-		int noHeardPeopleCnt = 3;
-		int noSeePeopleCnt = 4;
-
-//		int noHeardPeopleCnt = in.nextInt();
-//		int noSeePeopleCnt = in.nextInt();
+		int n = in.nextInt();
+        
+		int[] arr = new int[n];
 		
-		int totalCnt = 0;
-
-		
-		
-		
-		List<String> noHeardPeople = new ArrayList<String>(); 
-		List<String> noSeePeople = new ArrayList<String>(); 
-		List<String> totalPeople = new ArrayList<String>(); 
-		
-//		for(int i = 0; i < noHeardPeopleCnt; i++) {
-//			noHeardPeople.add(in.next());
-//		}
-//		for(int i = 0; i < noSeePeopleCnt; i++) {
-//			noSeePeople.add(in.next());
-//		}
-		
-		
-		// 하드코딩 테스트
-		noHeardPeople.add("ohhenrie");
-		noHeardPeople.add("charlie");
-		noHeardPeople.add("baesangwook");
-		noSeePeople.add("obama");
-		noSeePeople.add("baesangwook");
-		noSeePeople.add("ohhenrie");
-		noSeePeople.add("clinton");
-		
-		
-		for(int i = 0; i < noSeePeople.size(); i++) {
-			for(int j = 0; j < noHeardPeople.size(); j++) {
-				if(noSeePeople.get(i).equals(noHeardPeople.get(j))) {
-					totalCnt += 1;
-					totalPeople.add(noSeePeople.get(i));
-				}
-			}
+		for(int i = 0; i < n; i++) {
+			arr[i] = in.nextInt();
 		}
-		
-		System.out.println(totalCnt);
-		for(String people : totalPeople) {
-			System.out.println(people);
-			
-		}
-		
+		int answer = 0;
+        
+        for(int h = 0; h < arr.length+1; h++){
+            int hUp = 0;
+            int hDown = 0;
+            
+            for(int i = 0; i < arr.length; i++){
+                if(arr[i] >= h){
+                    hUp += 1;
+                }else{
+                    hDown += 1;
+                }
+            }
+            int totalTreatise = arr.length;
+            int remainder = totalTreatise - h;
+            
+            
+            if(h == hUp && hDown <= h && remainder <= h){
+                answer = h;   
+            }
+            
+            
+            if(h != 0 && h < hUp && h > hDown) {
+            	answer = h;
+            }
+             
+        }
+        
+        System.out.println(answer);
 	}
 }
