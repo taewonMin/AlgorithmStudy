@@ -25,7 +25,7 @@ public class Sort_6996 {
 		for (String string : list) {
 			System.out.println(string);
 		}
-		
+		sc.close();
 	}
 	
 	public static String isAnagram(String a, String b) {
