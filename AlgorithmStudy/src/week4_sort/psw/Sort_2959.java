@@ -14,12 +14,7 @@ public class Sort_2959 {
 		}
 		sc.close();
 		list.sort(Collections.reverseOrder());
-		int a,b,c,d;
-		a = list.get(0);
-		b = list.get(1);
-		c = list.get(2);
-		d = list.get(3);
-		int total = Math.min(a, b)*Math.min(c, d);
+		int total = Math.min(list.get(0), list.get(1))*Math.min(list.get(2), list.get(3));
 		System.out.println(total);
 	}
 }
