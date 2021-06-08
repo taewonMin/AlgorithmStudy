@@ -27,7 +27,7 @@ public class Sort_2456 {
 	public static void main(String[] args) {
 
 		Scanner scan = new Scanner(System.in);
-		
+		  
 		int cnt = scan.nextInt();				//총학생수 입력
 		
 		int arr[] = new int[cnt*3];				//학생수*3표씩 행사
