@@ -17,7 +17,7 @@ public class Sort_18310 {
 		}
 		
 		Arrays.sort(arr);
-		int mid = (arr[arr.length-1] + arr[0]) / 2;
+		int mid = arr[(arr.length - 1) / 2];
 		
 		System.out.println(mid);
 		
