@@ -13,27 +13,24 @@ public class Programmers_프린터 {
 		int answer = 0;
 		
 		Queue<Integer> queue = new LinkedList<>();
-		List<Integer> list = new ArrayList<Integer>();
+//		List<Integer> list = new ArrayList<Integer>();
 		for(int prioritie : priorities) {
 			queue.add(prioritie);
-			list.add(prioritie);
+//			list.add(prioritie);
 		}
 		
+		Arrays.sort(priorities);
 		
-		
-//		Collections.sort(list,Collections.reverseOrder());
-//		
-//		for(int i = 0; i < priorities.length; i++) {
-//			if(priorities[i] >= list.get(0)){
-//				queue.remove();
-//				list.remove(0);
-//			}else {
-//				
-//			}
-//		}
-		int temp = 0;
-		for(int i = 0; i < location; i++) {
-			temp = priorities[i];
+		for(int i = priorities.length - 1; i != 0; i-- ) {
+			while(queue.peek() != priorities[i]) {
+				if(priorities[i] != queue.peek()) {
+					queue.add(queue.peek());
+					queue.remove();
+				}
+			}
+			answer++;
+			queue.remove();
 		}
+		
 	}
 }
