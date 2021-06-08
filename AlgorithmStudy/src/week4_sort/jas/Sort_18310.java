@@ -22,7 +22,7 @@ public class Sort_18310 {
 		Scanner scan = new Scanner(System.in);
 		
 		int cnt = scan.nextInt();				// 총 집의 수
-		int arr[] = new int[cnt];				// 집 위치 담을 배열
+		int arr[] = new int[cnt];				// 집 위치 담을 배열 
 		int sum = 0;
 		//혹시 네개의 수의 평균값에 가장 가까운 집이 답일까?
 		  
