@@ -10,9 +10,11 @@ public class Sort_2456 {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		List<Candidate> list = new ArrayList<Candidate>();
+		
 		list.add(new Candidate());
 		list.add(new Candidate());
 		list.add(new Candidate());
+		
 		for (int i = 0; i < n; i++) {
 			list.get(0).put(sc.nextInt());
 			list.get(1).put(sc.nextInt());
