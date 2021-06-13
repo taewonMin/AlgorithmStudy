@@ -19,8 +19,8 @@ public class Programmers_트럭 {
 			waitingTruck.offer(truck_weights[i]);
 		}
 		
-		LinkedList<Integer> passingTruck=new LinkedList<Integer>(); // 얘네는 오직 다리 길이에만 영향받음
-		List<Integer> passedTruck=new ArrayList<Integer>();
+		LinkedList<Integer> passingTruck = new LinkedList<Integer>(); // 얘네는 오직 다리 길이에만 영향받음
+		List<Integer> passedTruck = new ArrayList<Integer>();
 		// 1초에 한대씩 다리에 오를 수 있네
 
 		// 자료 셋팅
@@ -30,7 +30,7 @@ public class Programmers_트럭 {
 		
 		
 		int i = 1;
-		while(true) {
+		while(passedTruck.size() != truck_weights.length) {
 			// 시간 증가
 			totalTime++;
 			for (int j = 0; j < passingTruck.size(); j++) {
@@ -44,13 +44,7 @@ public class Programmers_트럭 {
 				totalWeight -= passedTruck.get(passedTruck.size()-1);
 			}
 			
-			if(passedTruck.size() == truck_weights.length) {
-				totalTime++;
-				break;
-			} // 탈출조건
-			
-			
-			if(i<truck_weights.length) {
+			if(i < truck_weights.length) {
 				// 다리 위에 올라 갈 수 있다면
 				if(totalWeight + truck_weights[i] <= weight) {
 					passingTruck.offer(0); // 들어가면 0초부터 시작인듯
@@ -60,7 +54,7 @@ public class Programmers_트럭 {
 			}
 			
 		}
-        answer = totalTime;
+        answer = totalTime + 1;
         System.out.println(answer);
 	}
 }
