@@ -14,21 +14,21 @@ public class Sort_5576 {
 			if(cnt < 10) {
 				int temp = sc.nextInt();
 				if(temp < 0 || temp > 100) {
-					cnt --;
+					cnt--;
 				}else {
 					wArr[cnt] = temp;
 				}
 			}else {
 				int temp = sc.nextInt();
 				if(temp < 0 || temp > 100) {
-					cnt --;
+					cnt--;
 				}else {
 					kArr[cnt-10] = temp;
 				}
 			}
 			
 		}
-		
+
 		Arrays.sort(wArr,Comparator.reverseOrder());
 		Arrays.sort(kArr,Comparator.reverseOrder());
 		

@@ -7,6 +7,11 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+// 회장
+/*
+총점이나 갯수를 구할 때 그 값이 어떤 후보의 값인지 꼬리표처럼 붙여놓고 싶어서 각 값을 Map에 담았습니다.
+
+*/
 public class Sort_2456 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -63,7 +68,9 @@ public class Sort_2456 {
 		secCntMap.put(3, secCnt3);
 		
 		List<Map.Entry<Integer, Integer>> entries = sumMap.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).collect(Collectors.toList());
-		
+		//이후 Map객체를 entry로 바꿔서 value 기준 내림차순 정렬시켰고, 그것을 List에 담아서 0번값이 가장 큰 값을 갖도록 했습니다.
+		//총점으로만 비교하면 0번방 1번방 값을 비교하면 되는데, 이 때 두 값이 같을 경우, 두 값의 3점갯수를 얻기 위해 3점갯수를 담은 맵 객체에 0번방의 키와 1번방의 키를 넣고 갯수를 꺼냈습니다.
+		//이렇게 3점을 비교했는데도 같은 값이 있을 경우 2점갯수도 같은 방법으로 비교 후 결과 확인
 		for(Map.Entry<Integer, Integer> entry : entries) {
 			System.out.println("key : " + entry.getKey() + ", value : " + entry.getValue());
 		}

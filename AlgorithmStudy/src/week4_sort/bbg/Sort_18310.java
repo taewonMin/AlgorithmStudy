@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+//안테나
+
 public class Sort_18310 {
 	public static void main(String[] args) {
 		

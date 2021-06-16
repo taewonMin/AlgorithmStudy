@@ -29,12 +29,12 @@ public class Sort_6996 {
 					sortedB += bArr[idx];
 				}
 				if(sortedA.equals(sortedB)) {
-					System.out.println(testCase[row][0] + " && " + testCase[row][1] + " are anagrams.");
+					System.out.println(testCase[row][0] + " & " + testCase[row][1] + " are anagrams.");
 				}else {
-					System.out.println(testCase[row][0] + " && " + testCase[row][1] + " are NOT anagrams.");
+					System.out.println(testCase[row][0] + " & " + testCase[row][1] + " are NOT anagrams.");
 				}
 			}else {
-				System.out.println(testCase[row][0] + " && " + testCase[row][1] + " are NOT anagrams.");
+				System.out.println(testCase[row][0] + " & " + testCase[row][1] + " are NOT anagrams.");
 			}
 		}
 	}

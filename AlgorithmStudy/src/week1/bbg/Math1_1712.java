@@ -7,15 +7,15 @@ public class Math1_1712 {
 		long A, B, C;
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("고정 비용, 가변 비용, 판매 비용을 빈칸으로 구분하여 순서대로 입력하세요.");
-		A = sc.nextInt();
+		//System.out.println("고정 비용, 가변 비용, 판매 비용을 빈칸으로 구분하여 순서대로 입력하세요.");
+		A = sc.nextInt();//long ? int도 범위에 해당.
 		B = sc.nextInt();
 		C = sc.nextInt();
 		if(A > 2100000000 || B > 2100000000 || C > 2100000000) {
-			System.out.println("입력값은 21억을 초과할 수 없습니다.");
+			//System.out.println("입력값은 21억을 초과할 수 없습니다.");
 			return;
 		}
-		System.out.println("입력한 고정 비용 : " + A + "\n가변 비용 : " + B + "\n판매 비용 : " + C);
+		//System.out.println("입력한 고정 비용 : " + A + "\n가변 비용 : " + B + "\n판매 비용 : " + C);
 		long n = 0;
 		if((B-C) != 0) n  = -A / (B-C); // 알고싶은 값
 		System.out.println( n > 0 ? n+1 : -1);
