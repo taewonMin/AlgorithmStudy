@@ -11,7 +11,8 @@ public class Sort_9946 {
 			String listStr = sc.next();
 			String mixStr = sc.next();
 			if("END".equals(listStr) && "END".equals(mixStr)) break;
-			String answer = isEquals(listStr.toCharArray(),mixStr.toCharArray()) ? "same" : "different"; 
+			String answer = isEquals(listStr.toCharArray(),mixStr.toCharArray()) ? "same" : "different";
+			// toCharArray가 파일용량도 줄여주면서 속도도 빠르다고 하셨다.
 			System.out.println("Case "+i+": "+answer);
 			i++;
 		}
