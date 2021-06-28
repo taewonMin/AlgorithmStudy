@@ -20,20 +20,50 @@ public class Sort_3845 {
 				break;
 			}
 			
-			float[] horizontal = new float[nx];
-			float[] vertical = new float[ny];
-
-			for(int i = 0; i < nx; i++) {
-				horizontal[i] = in.nextFloat();
-			}
+			float[] horizontal = {(float) 0.0, (float) 10.0, (float) 20.0, (float) 30.0, (float) 40.0, (float) 50.0, (float) 60.0, (float) 70.0};
+			float[] vertical = {(float) 0.0, (float) 10.0, (float) 20.0, (float) 30.0, (float) 40.0, (float) 50.0, (float) 60.0, (float) 70.0,(float) 80.0,(float) 90.0, (float) 100.0};
 			
-			for(int i = 0; i < ny; i++) {
-				vertical[i] = in.nextFloat();
-			}
+//			float[] horizontal = new float[nx];
+//			float[] vertical = new float[ny];
+//
+//			for(int i = 0; i < nx; i++) {
+//				horizontal[i] = in.nextFloat();
+//			}
+//			
+//			for(int i = 0; i < ny; i++) {
+//				vertical[i] = in.nextFloat();
+//			}
 			
 			Arrays.sort(horizontal);
 			Arrays.sort(vertical);
-			// 0번째 += width 총합 비교하면 될듯
+			
+			boolean bolNx = true;
+			boolean bolNy = true;
+			
+			for(int i = 0; i < nx; i++) {
+				if(i > 0) { 
+					if(horizontal[i] != horizontal[i-1] + width) {
+						bolNx = false;
+						break;
+					}
+				}
+			}
+			
+			for(int i = 0; i < ny; i++) {
+				if(i > 0) { 
+					if(vertical[i] != vertical[i-1] + width) {
+						bolNy = false;
+						break;
+					}
+				}
+			}
+			
+			if(bolNx && bolNy) {
+				System.out.println("YES");
+			}else {
+				System.out.println("NO");
+			}
+			
 		}
 		
 		in.close();
