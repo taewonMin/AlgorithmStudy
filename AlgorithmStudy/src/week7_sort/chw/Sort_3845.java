@@ -20,19 +20,16 @@ public class Sort_3845 {
 				break;
 			}
 			
-			float[] horizontal = {(float) 0.0, (float) 10.0, (float) 20.0, (float) 30.0, (float) 40.0, (float) 50.0, (float) 60.0, (float) 70.0};
-			float[] vertical = {(float) 0.0, (float) 10.0, (float) 20.0, (float) 30.0, (float) 40.0, (float) 50.0, (float) 60.0, (float) 70.0,(float) 80.0,(float) 90.0, (float) 100.0};
+			float[] horizontal = new float[nx];
+			float[] vertical = new float[ny];
+
+			for(int i = 0; i < nx; i++) {
+				horizontal[i] = in.nextFloat();
+			}
 			
-//			float[] horizontal = new float[nx];
-//			float[] vertical = new float[ny];
-//
-//			for(int i = 0; i < nx; i++) {
-//				horizontal[i] = in.nextFloat();
-//			}
-//			
-//			for(int i = 0; i < ny; i++) {
-//				vertical[i] = in.nextFloat();
-//			}
+			for(int i = 0; i < ny; i++) {
+				vertical[i] = in.nextFloat();
+			}
 			
 			Arrays.sort(horizontal);
 			Arrays.sort(vertical);
@@ -63,9 +60,7 @@ public class Sort_3845 {
 			}else {
 				System.out.println("NO");
 			}
-			
 		}
-		
 		in.close();
 	}
 }
