@@ -10,13 +10,17 @@ public class Sort_18868 {
 		Scanner sc = new Scanner(System.in);
 		IndexSize[][] planets = new IndexSize[sc.nextInt()][sc.nextInt()];
 		for (int i = 0; i < planets.length; i++) {
+			
 			for (int j = 0; j < planets[i].length; j++) {
 				planets[i][j] = new IndexSize(j, sc.nextInt());
 			}
+			
 			Arrays.sort(planets[i],(IndexSize a, IndexSize b)-> a.size - b.size);
 		}
+		
 		Map<String, Integer> answer = new HashMap<String, Integer>();
 		StringBuffer sb = new StringBuffer();
+		
 		for (int i = 0; i < planets.length; i++) {
 			for (int j = 0; j < planets[i].length; j++) {
 				sb.append(planets[i][j].index);

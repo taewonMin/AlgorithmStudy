@@ -7,8 +7,6 @@ public class Sort_2358 {
 		Scanner sc = new Scanner(System.in);
 		int answer = 0;
 		
-		
-		
 		System.out.println(answer);
 		sc.close();
 	}
