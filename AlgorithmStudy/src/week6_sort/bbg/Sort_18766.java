@@ -1,7 +1,8 @@
 package week6_sort.bbg;
 
 import java.util.Scanner;
-
+// 시계추 똑딱 거리는것 처럼 두 개미가 만나더라도 서로 직진해서 가는것처럼 그 시간에 그 개미가 있을 것. 벽에 부딪히는거 빼곤 ..
+// 개미의 첫 위치에 개미 이동거리의 최대값이 정해진다.
 public class Sort_18766 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
