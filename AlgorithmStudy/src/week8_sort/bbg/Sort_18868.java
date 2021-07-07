@@ -22,7 +22,7 @@ public class Sort_18868 {
 		
 		int result = 0;
 		int cnt = 0;
-		
+		//test
 		for(int i = 0 ; i < M-1 ; i++) {
 			for(int j = 0; j < N-1 ; j++) {
 				if(space[i][j] < space[i][j+1]) {
