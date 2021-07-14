@@ -24,3 +24,31 @@ public class Math_3034 {
 		sc.close();
 	}
 }
+/*
+ (C++)
+ 
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int N;
+    int W;
+    int H;
+    
+    scanf("%d",&N);
+    scanf("%d",&W);
+    scanf("%d",&H);
+
+    double daVal = sqrt(W*W + H*H);
+    
+    for(int cnt = 0; cnt < N ; cnt++){
+        int length;
+        scanf("%d",&length);
+        char *result = "NE";
+        if(length <= daVal) result = "DA";
+        printf("%s\n",result);
+    }
+    return 0;
+}    
+ */
