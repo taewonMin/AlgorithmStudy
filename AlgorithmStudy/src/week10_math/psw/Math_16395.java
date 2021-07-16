@@ -3,6 +3,9 @@ package week10_math.psw;
 import java.util.Scanner;
 
 public class Math_16395 {
+	final static String cute = new String("◝(⑅•ᴗ•⑅)◜..°♡ 뀌요미!!");
+	final static String mad = new String("흥칫뿡!! <(￣ ﹌ ￣)>");
+
 	public static int progress;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -15,7 +18,8 @@ public class Math_16395 {
 				if(!isProgression(num.charAt(i), num.charAt(i+1))) flag = false;
 			}
 		}
-		System.out.println(flag ? "◝(⑅•ᴗ•⑅)◜..°♡ 뀌요미!!" : "흥칫뿡!! <(￣ ﹌ ￣)>");
+		
+		System.out.println(flag ? cute : mad);
 		sc.close();
 	}
 	public static boolean isProgression(char a, char b) {
