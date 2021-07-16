@@ -1,16 +1,18 @@
 package week10_math.psw;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Math_16395 {
 	final static String cute = new String("◝(⑅•ᴗ•⑅)◜..°♡ 뀌요미!!");
 	final static String mad = new String("흥칫뿡!! <(￣ ﹌ ￣)>");
 
 	public static int progress;
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		boolean flag = true;
-		StringBuffer num = new StringBuffer(String.valueOf(sc.nextLong()));
+		StringBuffer num = new StringBuffer(br.readLine());
 		
 		if(num.length() > 1) {
 			progress = num.charAt(0) - num.charAt(1);
@@ -20,7 +22,6 @@ public class Math_16395 {
 		}
 		
 		System.out.println(flag ? cute : mad);
-		sc.close();
 	}
 	public static boolean isProgression(char a, char b) {
 		return a-b == progress ?  true : false;
