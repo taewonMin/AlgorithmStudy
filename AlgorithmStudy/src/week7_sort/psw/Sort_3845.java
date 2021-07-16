@@ -11,6 +11,8 @@ public class Sort_3845 {
 			float[] nx = new float[sc.nextInt()];
 			float[] ny = new float[sc.nextInt()];
 			float width = sc.nextFloat();
+			if(nx.length == 0 && ny.length ==0 && width == 0 ) break;
+			
 			boolean answer = true;
 			
 			for (int i = 0; i < nx.length; i++) {
@@ -39,7 +41,6 @@ public class Sort_3845 {
 				}
 			}
 			
-			if(nx.length == 0 && ny.length ==0 && width == 0 ) break;
 			System.out.println(answer ? "YES" : "NO");
 		}
 		
