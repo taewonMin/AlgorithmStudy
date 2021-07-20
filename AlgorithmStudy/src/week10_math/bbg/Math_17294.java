@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
 
-//귀여운
+//귀여운 //다시커밋
 public class Math_17294 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
