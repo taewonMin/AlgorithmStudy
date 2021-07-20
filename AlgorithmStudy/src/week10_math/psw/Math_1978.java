@@ -13,7 +13,6 @@ public class Math_1978 {
     		int x = (int)Math.sqrt(num)+1;
     		
 			for (int j = 2; j < x; j++) { if(num%j == 0) { answer--; break; } }
-			
 		}
     	sc.close();
     	System.out.println(answer);
