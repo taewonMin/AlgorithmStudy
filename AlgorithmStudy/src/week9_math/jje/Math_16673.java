@@ -8,9 +8,9 @@ public class Math_16673 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int c = sc.nextInt(); //와인을 모은 년수
-		int k = sc.nextInt(); //고려대 애착 정도
-		int p = sc.nextInt(); //구매중독
+		int c =3; //sc.nextInt(); //와인을 모은 년수
+		int k = 1;//sc.nextInt(); //고려대 애착 정도
+		int p =1; //sc.nextInt(); //구매중독
 		
 		int result = 0;
 		
