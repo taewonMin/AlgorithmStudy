@@ -11,10 +11,9 @@ public class Math_16395 {
 		if(n==1&&k==1) System.out.println(1);
 		else {
 			int [][] mid = new int[n][n];
-			mid[0][0] =1;
+			mid[0][0] = 1;
 			mid[1][0] = 1;
 			mid[1][1] = 1;
-
 			for(int i =1; i< n; i++){
 				mid[i][0] = 1;
 				mid[i][i] = 1;
