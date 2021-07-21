@@ -7,6 +7,7 @@ public class Math_1978 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
+		
 		int[] numbers = new int[sc.nextInt()];
 		
 		int pNCount = 0;
