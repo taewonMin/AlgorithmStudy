@@ -1,72 +1,112 @@
 package week11_math.psw;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.function.BiPredicate;
-import java.util.function.Supplier;
+import java.util.function.Function;
 
 public class BFS_10026 {
 	public static int size;
 	public static char[][] section;
 	public static int answer = 0;
-
 	public static char none = '0';
+
 	final static char red = 'R';
-	final static char blue = 'B';
 	final static char green = 'G';
+	final static char blue = 'B';
 	
 	
-	public static Supplier<Character> getColor = () -> {
-		for (int i = 0; i < section.length; i++) {
-			for (int j = 0; j < section.length; j++) {
-				if(Character.compare(none, section[i][j]) != 0) return section[i][j];
+	static BiPredicate<Character, Character> nomal = Character::equals;
+
+	static BiPredicate<Character, Character> unnomal = (one, two) ->{
+		boolean flag = false;
+		
+		if((one.equals(red) || one.equals(green)) 
+				&& (two.equals(red) || two.equals(green))) {
+			flag = true;
+		}else {
+			flag = one.equals(two);
+		}
+		
+		return flag;
+	};
+
+	private static void addQueue(Integer[] integers, boolean[][] visited, Queue<Integer[]> queue) {
+		visited[integers[0]][integers[1]] = true;
+		queue.add(integers);
+	}
+
+	private static char getColor(Integer[] integers, boolean[][] visited) {
+		visited[integers[0]][integers[1]] = true;
+		return section[integers[0]][integers[1]];
+	}
+	
+	static Function<BiPredicate<Character, Character>, Integer> findColor = (condition) -> {
+		boolean[][] visited = new boolean[size][size];
+		int total = 0;
+		char target = none;
+		
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				
+				if(!visited[i][j]) {
+
+					target = getColor(new Integer[] {i,j},visited);
+					Queue<Integer[]> queue = new LinkedList<Integer[]>();
+					queue.add(new Integer[] {i,j});
+					
+					
+
+					while (!queue.isEmpty()) {
+						Integer[] indexes = queue.poll();
+						int x = indexes[0];
+						int y = indexes[1];
+
+						// north
+						if(x -1 > -1 && !visited[x-1][y] &&  condition.test(target, section[x-1][y]))  {
+							addQueue(new Integer[] {x-1,y},visited, queue);
+						}
+						
+						// west
+						if(y -1 > -1 && !visited[x][y-1] &&  condition.test(target, section[x][y-1]))  {
+							addQueue(new Integer[] {x,y-1},visited, queue);
+						}
+						
+						// east
+						if(x + 1 < size && !visited[x+1][y] && condition.test(target, section[x+1][y]))  {
+							addQueue(new Integer[] {x+1,y},visited, queue);
+						}
+						
+						// south
+						if(y + 1 < size && !visited[x][y+1] &&  condition.test(target, section[x][y+1]))  {
+							addQueue(new Integer[] {x,y+1},visited, queue);
+						}
+						
+					};
+					total++;
+					target = none;
+				}
 			}
 		}
-		return none;
+		
+		return total;
 	};
-	
-	/**
-	 * @param  찾을 색, 색 판단 기준 (색맹 여부)
-	 * @return 찾은 색이 없다면 false 리턴
-	 */
-	public static BiPredicate<Character, BiPredicate<Character,Character>> findColor = (color, condition) -> {
-		if (color.equals('0')) return false;
-		
-		
-		
-		
-		return true;
-	};
+
 	
 	
 	
-	
-	public void main(String[] args) {
-		
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		size = sc.nextInt();
 		section = new char[size][];
-		
-		for (int i = 0; i < size; i++) {
-			section[i] = sc.nextLine().toCharArray();
-		}
-		
-		char[][] temp = section.clone();
-		
-		// 일반인 영역
-		while (findColor.test(getColor.get(), (color1, color2) -> color1.equals(color2))) { };
-		System.out.print(answer + " ");
-		
-		answer = 0;
-		section = temp;
-		
-		// 색맹 영역
-		while (findColor.test(getColor.get(), (color1, color2) -> {
-			if(color1.equals(red) && (color2.equals(red) || color2.equals(blue))) return true;
-			if(color1.equals(blue) && (color2.equals(red) || color2.equals(blue))) return true;
-			return color1.equals(color2);
-		})) { };
-		System.out.print(answer);
-		
+		for (int i = 0; i < section.length; i++) { section[i] = sc.next().toCharArray(); }
 		sc.close();
+		
+		int count1 = findColor.apply(nomal);
+		int count2 = findColor.apply(unnomal);
+		
+		System.out.println(count1 + " " + count2);
 	}
+
 }
