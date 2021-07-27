@@ -9,7 +9,7 @@ public class Math_13270 {
 		
 		int n = sc.nextInt();
 		sc.close();
-		
+		 
 		/* 
 		 * 
 		 * 13 	= 2*5+3 => 5+2 =7(min)
