@@ -26,3 +26,42 @@ public class Math_5543 {
 		sc.close();
 	}
 }
+/* 1112KB	0ms
+ #include <stdio.h>
+
+int main(){
+    int burgers[3]{};
+    int beverages[2]{};
+    int temp;
+    for(int idx = 0 ; idx < sizeof(burgers)/sizeof(int) ; idx++){
+        scanf("%d\n", &burgers[idx]);
+    }
+    for(int idx = 0 ; idx < sizeof(beverages)/sizeof(int) ; idx++){
+        scanf("%d\n", &beverages[idx]);
+    }
+    // 버거 정렬
+    for(int j = 0 ; j < sizeof(burgers)/sizeof(int) ; j++ ){
+        for(int i = 0 ; i <sizeof(burgers)/sizeof(int)-1 ; i++ ){
+            if(burgers[i] > burgers[i+1]){
+                temp = burgers[i];
+                burgers[i] = burgers[i+1];
+                burgers[i+1] = temp;
+            }
+        }
+    }
+    // 음료 정렬
+    for(int j = 0 ; j < sizeof(beverages)/sizeof(int) ; j++ ){
+        for(int i = 0 ; i <sizeof(beverages)/sizeof(int)-1 ; i++ ){
+            if(beverages[i] > beverages[i+1]){
+                temp = beverages[i];
+                beverages[i] = beverages[i+1];
+                beverages[i+1] = temp;
+            }
+        }
+    }
+    
+    printf("%d\n", burgers[0] + beverages[0] - 50);
+    
+    return 0;
+} 
+ */
