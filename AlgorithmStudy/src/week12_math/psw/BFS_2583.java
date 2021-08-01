@@ -39,15 +39,14 @@ public class BFS_2583 {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
 		int m = sc.nextInt();
+		int n = sc.nextInt();
 		square = new boolean[m][n];
 		int k = sc.nextInt();
 		
 		for (int i = 0; i < k; i++) {
 			goVisit.accept(new Integer[]{sc.nextInt(),sc.nextInt()},new Integer[]{sc.nextInt(),sc.nextInt()});
 		}
-		
 		
 		boolean[][] visited = new boolean[m][n];
 		Queue<Integer[]> queue = new LinkedList<Integer[]>();
@@ -77,13 +76,13 @@ public class BFS_2583 {
 				}
 				
 				// east
-				if(x + 1 < n && !visited[x+1][y] && !square[x+1][y])  {
+				if(x + 1 < visited.length && !visited[x+1][y] && !square[x+1][y])  {
 					queue.add(new Integer[] {x+1,y});
 					visited[x+1][y] = true;
 				}
 				
 				// south
-				if(y + 1 < n && !visited[x][y+1] && !square[x][y+1])  {
+				if(y + 1 < visited[x].length && !visited[x][y+1] && !square[x][y+1])  {
 					queue.add(new Integer[] {x,y+1});
 					visited[x][y+1] = true;
 				}
@@ -93,7 +92,15 @@ public class BFS_2583 {
 			if(index != null) queue.add(index);
 			answer.add(sectionSize);
 		}
-		System.out.println(answer.size());
+		
+		answer.sort(Integer::compareTo);
+		for (int i = 0; i < answer.size(); i++) {
+			System.out.print(answer.get(i));
+			
+			if(i != answer.size()-1) System.out.print(" ");
+		}
 		sc.close();
 	}
+	
+	
 }
