@@ -1,8 +1,8 @@
-package week12.phk;
+package week13.jje;
 
 import java.util.Scanner;
 
-public class Queue_10845 {
+public class Math_14916 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		

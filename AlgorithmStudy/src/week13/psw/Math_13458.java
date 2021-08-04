@@ -1,4 +1,4 @@
-package week12.jje;
+package week13.psw;
 
 import java.util.Scanner;
 
