@@ -30,7 +30,7 @@ A, B = input().split()
 result = 0
 arr = make_arr(B, [])
 for i in range(int(A)-1,int(B)):
-    result += arr[int(A)]
+    result += arr[i]
 print(result)
 
 
