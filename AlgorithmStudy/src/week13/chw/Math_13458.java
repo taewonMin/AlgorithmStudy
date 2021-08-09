@@ -6,6 +6,27 @@ public class Math_13458 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
+		int examCnt = sc.nextInt();
+		int[] peopleArr = new int[examCnt];
+		
+		for(int i = 0; i < examCnt; i++) {
+			peopleArr[i] = sc.nextInt();
+		}
+		
+		int chong = sc.nextInt();
+		int bu = sc.nextInt();
+		
+		int result = examCnt;
+		for(int people : peopleArr) {
+			if (people <= chong) continue;
+			
+			if ((people - chong) % bu == 0) {
+				result += (people - chong) / bu;
+			}else {
+				result += (people - chong) / bu + 1;
+			}
+		}
+		System.out.println(result);
 		
 		sc.close();
 	}
