@@ -8,6 +8,7 @@ public class DS_17219 {
 		Scanner sc = new Scanner(System.in);
 		
 		int N = sc.nextInt();
+		
 		int M = sc.nextInt();
 		
 		String[][] arr = new String[N][2];
