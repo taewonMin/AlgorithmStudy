@@ -24,7 +24,7 @@ public class DFS_2644 {
 		
 
 		Stack<Integer> stack = new Stack<>();
-		stack.add(one);
+		stack.push(one);
 		visited[one] = true;
 		
 		int cnt = 0;
@@ -41,13 +41,16 @@ public class DFS_2644 {
 			
 			for (int i = 0; i < n; i++) {
 				if( graph[nodeIdx][i] && !visited[i] ) {
-					stack.add(i);
+					stack.push(i);
 					visited[i] = true;
 					cnt++;
+					System.out.println(nodeIdx + "," + i);
 				}
 			}
 		}
-		
+		//	 1
+		// 	2 , 3
+		// 789 
 		if(!isFind) System.out.println(-1);
 		sc.close();
 	}
