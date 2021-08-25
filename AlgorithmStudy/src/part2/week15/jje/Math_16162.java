@@ -1,30 +1,33 @@
 package part2.week15.jje;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 public class Math_16162 {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
 
-		int k = sc.nextInt();
+        Scanner sc = new Scanner(System.in);
 
-		Stack<Integer> studyStack = new Stack<Integer>();
+        int n = sc.nextInt();
+        int a = sc.nextInt();
+        int d = sc.nextInt();
 
-		for (int i = 0; i < k; i++) {
-			int num = sc.nextInt();
-			if(num==0) studyStack.pop();
-			else studyStack.push(num);
-		}
+        int[] melody = new int[n];
 
-		int result = 0;
-		int temp = studyStack.size();
+        for (int i = 0; i < n; i++) {
+            melody[i] = sc.nextInt();
+        }
 
-		for (int i = 0; i < studyStack.size(); i++) {
-			result+=studyStack.get(i);
-		}
+        int num = 0;
 
-		System.out.println(result);
-		sc.close();
-	}
+        for (int i = 0; i < n; i++) {
+            if (melody[i] == a) {
+                num++;
+                a += d;
+            }
+
+        }
+        System.out.println(num);
+
+        sc.close();
+    }
 }
