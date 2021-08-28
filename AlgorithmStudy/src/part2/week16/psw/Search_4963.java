@@ -7,10 +7,8 @@ public class Search_4963 {
 	static boolean[][] visitied;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
 		while(init(sc)) {
 			int answer = 0;
-			
 			for (int i = 0; i < map.length; i++) {
 				for (int j = 0; j < map[i].length; j++) {
 					if(map[i][j] == 1 && !visitied[i][j]) {
@@ -19,7 +17,6 @@ public class Search_4963 {
 					}
 				}
 			}
-
 			System.out.println(answer);
 		}
 
