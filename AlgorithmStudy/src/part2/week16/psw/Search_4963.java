@@ -38,7 +38,7 @@ public class Search_4963 {
 	
 	static void dfs(int i, int j) {
 		visitied[i][j] = true;
-		for (int h = -1; h <= 1; h++) { // 총 8번의 케이스 (8방위 검사)
+		for (int h = -1; h <= 1; h++) {
 			for (int w = -1; w <= 1; w++) {
 				if(h == 0 && w == 0) continue;
 				if(boundaryChk(i+h,j+w) && map[i+h][j+w] == 1 && !visitied[i+h][j+w]) dfs(i+h,j+w);
