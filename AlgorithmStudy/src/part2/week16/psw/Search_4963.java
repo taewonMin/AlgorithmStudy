@@ -45,6 +45,9 @@ public class Search_4963 {
 			}
 		}
 	}
+	// 1 2 3
+	// 4 X 5
+	// 6 7 8
 	
 	private static boolean boundaryChk(int i, int j) {
 		if(i > -1 && j > -1 && i < map.length && j < map[0].length) return true;
