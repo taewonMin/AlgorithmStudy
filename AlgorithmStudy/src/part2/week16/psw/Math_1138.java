@@ -17,7 +17,10 @@ public class Math_1138 {
 		while(!list.isEmpty()) {
 			Integer[] item = list.pop();
 			for (int i = 0; i <= answer.size(); i++) {
-				if(item[0] == i) answer.add(i, item);
+				if(item[0] == i) {
+					answer.add( i , item );
+					break;
+				}
 			}
 		}
 		answer.forEach( (item) -> System.out.print(item[1] +" "));
