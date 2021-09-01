@@ -15,6 +15,7 @@ public class Heap {
 		int idx = 0;
 		idx = ++n; // 처음 넣을 때 1부터 들어감. 이후  push 호출 시 마다 ++ 되어 들어감
 		
+		
 		while((idx != 1) && item < heap[idx/2]) { 
 			// ex. 2번방 타겟인데 새로온 템이 1번방템보다 작으면
 			heap[idx] = heap[idx/2]; // 2번방에 1번방템 넣는다.

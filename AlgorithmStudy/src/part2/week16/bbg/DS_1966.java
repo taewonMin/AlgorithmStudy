@@ -26,6 +26,7 @@ public class DS_1966 {
 			System.out.println(resultNum);
 		}
 		sc.close();
+		
 	}
 }
 

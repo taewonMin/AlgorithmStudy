@@ -21,6 +21,7 @@ public class DS_1927 {
 		}
 		
 		sc.close();
+		
 	}
 	
 }
