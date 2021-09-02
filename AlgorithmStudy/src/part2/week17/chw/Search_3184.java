@@ -1,4 +1,4 @@
-package part2.week16.mtw;
+package part2.week17.chw;
 
 import java.util.Scanner;
 
