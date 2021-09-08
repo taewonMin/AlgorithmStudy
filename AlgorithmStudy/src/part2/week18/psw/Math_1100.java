@@ -14,7 +14,6 @@ public class Math_1100 {
                 i++;
             }
         }
-
         System.out.println(answer);
         sc.close();
     }
