@@ -2,6 +2,7 @@ package part2.week18.phk;
 
 import java.util.Scanner;
 
+// 42356kb	1168ms
 public class Imple_10994 {
     public static void main(String[] args) {
         /**
@@ -15,22 +16,25 @@ public class Imple_10994 {
         int n = sc.nextInt();
         sc.close();
         char[][] start = {{'*'}};
-        char[][] star = new char[4*n -3][4*n -3];
-        int cnt = 1;    
-        while(cnt != n){
-            star = draw(start);
-        }
+        int size = 4*n -3;
+        char[][] star = new char[size][size];
+        if(1 < n) {
+            star = draw(start, n, 2);
         
-        for (int i = 0; i < star.length; i++) {
-            for (int j = 0; j < star[i].length; j++) {
-                System.out.print(star[i][j] == star[0][0] ? star[i][j] : ' ');
+            for (int i = 0; i < star.length; i++) {
+                for (int j = 0; j < star[i].length; j++) {
+                    System.out.print(star[i][j] == start[0][0] ? star[i][j] : ' ');
+                }
+                System.out.println();
+        
             }
-            System.out.println();
-        }
+        }else{
+            System.out.println(start[0][0]);
+        }    
         
     }
     
-    static char[][] draw(char[][] star){
+    static char[][] draw(char[][] star, int n, int cnt){
         char[][] n_star = new char[star.length + 4][star.length + 4];
         
         for (int i = 0; i < star.length; i++) {
@@ -45,7 +49,11 @@ public class Imple_10994 {
             n_star[n_star.length-1][i] = star[0][0];
             n_star[i][n_star.length-1] = star[0][0];
         }
+        
+        if (cnt < n) {
+            n_star = draw(n_star, n, cnt+1);
 
+        }
         return n_star;
     }
 }
