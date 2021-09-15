@@ -22,6 +22,7 @@ public class Imple_10994 { // 피라미드? 마름모?
                 map[end - j][i] = ch; // ↑
             }
         }
+
         map[2*(N-1)][2*(N-1)] = '*'; // 중점
         StringBuffer sb = new StringBuffer();
         for (char[] line: map) {
