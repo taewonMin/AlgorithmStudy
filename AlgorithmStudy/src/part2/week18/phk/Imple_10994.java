@@ -17,14 +17,15 @@ public class Imple_10994 {
         char[][] start = {{'*'}};
         char[][] star = new char[4*n -3][4*n -3];
         int cnt = 1;    
-        while(cnt == n){
+        while(cnt != n){
             star = draw(start);
         }
         
         for (int i = 0; i < star.length; i++) {
             for (int j = 0; j < star[i].length; j++) {
-                System.out.print(star[i][j] == star[0][0] ? ' ' : star[i][j]);
+                System.out.print(star[i][j] == star[0][0] ? star[i][j] : ' ');
             }
+            System.out.println();
         }
         
     }
