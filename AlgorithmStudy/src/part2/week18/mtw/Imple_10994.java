@@ -22,19 +22,19 @@ public class Imple_10994 {
     }
 
     static void draw(int start, int len){
-        if(n == 0) return;
+        if(len < 0) return;
         // 테두리 채우기
         for(int i=start; i<start+len; i++){
             for(int j=start; j<start+len; j++){
-                if(i==0 || i==start+len-1){
+                if(i==start || i==start+len-1){
                     draw[i][j] = "*";
-                }else if(j==0 || j==start+len-1){
+                }else if(j==start || j==start+len-1){
                     draw[i][j] = "*";
                 }else{
                     draw[i][j] = " ";
                 }
             }
         }
-        draw(start+2, start+2 + len-4);
+        draw(start+2, len-4);
     }
 }
