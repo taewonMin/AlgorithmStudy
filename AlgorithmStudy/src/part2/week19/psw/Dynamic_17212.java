@@ -3,12 +3,10 @@ package part2.week19.psw;
 import java.util.Scanner;
 
 public class Dynamic_17212 {
-    static int n = 0;
-    static int answer = 0;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        sc.close();
+        int n = sc.nextInt();
+        int answer = 0;
 
         int idx = n/7;
         while (idx-- > -1){
