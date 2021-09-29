@@ -1,5 +1,6 @@
 package part2.week19.chw;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -13,7 +14,6 @@ public class Search_1697 {
         boolean[] visited = new boolean[K*2];
         bfs(visited, N, K);
         
-        
         sc.close();
     }
     
@@ -21,43 +21,40 @@ public class Search_1697 {
     	visited[N] = true;
     	Queue<Integer> queue = new LinkedList<Integer>();
     	queue.add(N);
-    	int result = 1;
+    	int lastNum = N;
+    	int depth = 0;
     	while(!queue.isEmpty()) {
     		int nowValue = queue.peek();
+    		boolean checkDepth = false;
 //    		System.out.print(nowValue + " ");
     		if(nowValue == K) {
-    			checkDepth(result);
     			break;
+    		}else if(nowValue == lastNum && !visited[nowValue]) {
+    			checkDepth = true;
     		}
     		queue.remove();
+    		
     		if(!visited[nowValue - 1]) {
     			visited[nowValue - 1] = true;
     			queue.add(nowValue - 1);
-    		}else {
-    			result++;
     		}
     		if(!visited[nowValue + 1]) {
     			visited[nowValue + 1] = true;
     			queue.add(nowValue + 1);
-    		}else {
-    			result++;
     		}
     		if(nowValue * 2 < visited.length && !visited[nowValue * 2]) {
     			visited[nowValue * 2] = true;
     			queue.add(nowValue * 2);
-    		}else {
-    			result++;
     		}
-    		result++;
-    		
+    		if(checkDepth) {
+    			Iterator<Integer> iter = queue.iterator();
+    			while(iter.hasNext()) {
+    				lastNum = iter.next();
+    			}
+    			depth += 1;
+    		}
     	}
+    	System.out.println(depth);
     }
     
-    static void checkDepth(int result) {
-    	int depth = 1;
-    	int depthCnt = 1;
-    	while(true) {
-    		if(result < depthCnt) depthCnt = depthCnt * 3;
-    	}
-    }
 }

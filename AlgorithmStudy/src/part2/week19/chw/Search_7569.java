@@ -74,6 +74,7 @@ public class Search_7569 {
 	    						if(x > -1 && y > -1 && z > -1 && x < boxes[0][0].length && y < boxes[0].length && z < boxes.length && !visited[z][y][x]) {
 	    							if(boxes[z][y][x] == 1) {
 	    								Integer[] newCoordinate = {z, y, x};
+	    								visited[z][y][x] = true;
 	    								queue.add(newCoordinate);
 	//    								queue.add(new Integer[]{z, y, x});
 	    							}else if(boxes[z][y][x] == 0) {
@@ -111,75 +112,68 @@ public class Search_7569 {
 
 
 
-/*
 
-package part2.week19.chw;
-
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
-
-public class Search_7569_3 {
-	static int[][][] boxes;
-	static int M;
-    static int N;
-    static int H;
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        M = sc.nextInt();
-        N = sc.nextInt();
-        H = sc.nextInt();
-        int result = 0;
-        boxes = new int[H][N][M];
-        boolean checkTomato = false;
-        for(int i = 0 ; i < H; i++) {
-	        for(int j = 0; j < N; j++) {
-	        	for(int k = 0; k < M; k++) {
-	        		boxes[i][j][k] = sc.nextInt();
-	        		if(boxes[i][j][k] == 0) checkTomato = true;
-	        	}
-	        }
-        }
-        sc.close();
-        if(checkTomato) {
-        	System.out.println(result);
-        }else {
-        	bfs();
-        }
-    }
-    
-    static void bfs() {
-    	Queue<Integer[]> coordinateList = checkCoordinate();
-    	while(!coordinateList.isEmpty()) {
-    		Integer[] coordinate = coordinateList.peek();
-    		coordinateList.remove();
-    		checkAndChangeCoordinate(coordinate);
-    	}
-    }
-    
-    static void checkAndChangeCoordinate(Integer[] coordinate) {
-    	
-    }
-    
-    static Queue<Integer[]> checkCoordinate() {
-    	Queue<Integer[]> queue = new LinkedList<Integer[]>();
-    	for(int i = 0 ; i < H; i++) {
-	        for(int j = 0; j < N; j++) {
-	        	for(int k = 0; k < M; k++) {
-	        		if(boxes[i][j][k] == 1) {
-	        			Integer[] coordinate = {i, j, k};
-	        			queue.add(coordinate);
-	        		}
-	        	}
-	        }
-        }
-    	return queue;
-    }
-}
-
-
-
-
-
-*/
+//package part2.week19.chw;
+//
+//import java.util.LinkedList;
+//import java.util.Queue;
+//import java.util.Scanner;
+//
+//public class Search_7569 {
+//	static int[][][] boxes;
+//	static int M;
+//    static int N;
+//    static int H;
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        
+//        M = sc.nextInt();
+//        N = sc.nextInt();
+//        H = sc.nextInt();
+//        int result = 0;
+//        boxes = new int[H][N][M];
+//        boolean checkTomato = false;
+//        for(int i = 0 ; i < H; i++) {
+//	        for(int j = 0; j < N; j++) {
+//	        	for(int k = 0; k < M; k++) {
+//	        		boxes[i][j][k] = sc.nextInt();
+//	        		if(boxes[i][j][k] == 0) checkTomato = true;
+//	        	}
+//	        }
+//        }
+//        sc.close();
+//        if(checkTomato) {
+//        	System.out.println(result);
+//        }else {
+//        	bfs();
+//        }
+//    }
+//    
+//    static void bfs() {
+//    	Queue<Integer[]> coordinateList = checkCoordinate();
+//    	while(!coordinateList.isEmpty()) {
+//    		Integer[] coordinate = coordinateList.peek();
+//    		coordinateList.remove();
+//    		checkAndChangeCoordinate(coordinate);
+//    	}
+//    }
+//    
+//    static void checkAndChangeCoordinate(Integer[] coordinate) {
+//    	
+//    }
+//    
+//    static Queue<Integer[]> checkCoordinate() {
+//    	Queue<Integer[]> queue = new LinkedList<Integer[]>();
+//    	for(int i = 0 ; i < H; i++) {
+//	        for(int j = 0; j < N; j++) {
+//	        	for(int k = 0; k < M; k++) {
+//	        		if(boxes[i][j][k] == 1) {
+//	        			Integer[] coordinate = {i, j, k};
+//	        			queue.add(coordinate);
+//	        		}
+//	        	}
+//	        }
+//        }
+//    	return queue;
+//    }
+//}
