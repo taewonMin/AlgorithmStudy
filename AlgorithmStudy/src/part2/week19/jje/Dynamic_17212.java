@@ -8,8 +8,6 @@ public class Dynamic_17212 {
 
         //System.out.println(calcMoney(sc.nextInt()));
 
-        //https://kangeee.tistory.com/123?category=962337 Dynamic
-
         int[] dp = new int[100001];
 
         int n = sc.nextInt();
