@@ -17,19 +17,18 @@ public class Brute_2798 {
         //search(M);
         recursiveSearch(0,3,M,0);
         System.out.println(answer);
-        System.out.println(xxcnt);
         sc.close();
     }
 
     static void recursiveSearch(int sum,int cnt,int target, int idx){
         if(sum > target || idx >= numbers.length) return;
 
-        if(cnt == 0 && sum <= target) {
-            answer = sum > answer ? sum : answer;
+        if(cnt == 0) {
+            answer = sum <= target && sum > answer ? sum : answer;
             return;
         }
 
-        for(int i = idx; i < numbers.length; i++) {
+        for(int i = idx; i < numbers.length - (cnt-1); i++) {
             recursiveSearch(sum+numbers[i], cnt-1,target ,i+1);
         }
     }

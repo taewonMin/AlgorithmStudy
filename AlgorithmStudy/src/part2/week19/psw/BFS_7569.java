@@ -50,7 +50,7 @@ public class BFS_7569 {
         }
 
     }
-    private static boolean bChk(int[] idx) {
-        return idx[0] > -1 && idx[1] > -1 && idx[2] > -1 && idx[0] < H && idx[1] < N && idx[2] < M;
+    private static boolean bChk(int[] i) {
+        return i[0] > -1 && i[1] > -1 &&  i[2] > -1 && i[0] < H && i[1] < N && i[2] < M;
     }
 }

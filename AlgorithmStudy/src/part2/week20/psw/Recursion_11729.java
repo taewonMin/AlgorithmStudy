@@ -9,7 +9,7 @@ public class Recursion_11729 {
     static StringBuffer sb = new StringBuffer();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        n = 2;
+        n = sc.nextInt();
         for (int i = 0; i < stacks.length; i++) stacks[i] = new Stack<>();
         for (int i = 0; i < n; i++) stacks[0].add(n-i);
 
