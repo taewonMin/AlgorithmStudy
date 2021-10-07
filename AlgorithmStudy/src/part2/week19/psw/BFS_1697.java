@@ -39,8 +39,9 @@ public class BFS_1697 {
     }
 }
 /*
-                    s                           1
-                  a  b  c                       3
-                abc, abc, abc                   ...
- [abc,abc,abc], [abc,abc,abc], [abc,abc,abc]    3^n
+    2 3^8 10
+                        3                            1
+                      2 4 6                          3
+                abc,  ab3,  abc                       ...
+ [abc,2 abc,abc], [abc,abc,abc], [abc,abc,abc]        3^n
  */
