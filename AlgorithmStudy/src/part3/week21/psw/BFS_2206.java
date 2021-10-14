@@ -16,6 +16,9 @@ public class BFS_2206 {
 
         int answer = bfs();
 
+
+
+
         System.out.println(answer == 0 ? -1 : answer);
         sc.close();
     }
@@ -28,21 +31,25 @@ public class BFS_2206 {
         queue.add(new Integer[]{0,0,1,1});
         visitied[0][0][0] = true;
         visitied[0][0][1] = true;
-        int tt = 0;
+
         while (!queue.isEmpty()){
             Integer[] t = queue.poll();
             int[][] idx = {{t[0]+1,t[1]},{t[0]-1,t[1]}, {t[0],t[1]+1},{t[0],t[1]-1}};
+            System.out.println(t[2]);
             for (int i = 0; i < idx.length; i++) {
                 int n = idx[i][0];
                 int m = idx[i][1];
-                tt++;
+
                 if (bChk(n,m)){
+
                     if(t[3] == 1 && !visitied[n][m][0] && map[n][m] == '0'){
                         visitied[n][m][0] = true;
                         queue.add(new Integer[]{n,m,t[2]+1,1});
+
                     }else if(t[3] == 1 && !visitied[n][m][1] && map[n][m] == '1'){
                         visitied[n][m][1] = true;
-                        queue.add(new Integer[]{n,m,t[2]+1,0});
+                        queue.add(new Integer[]{n,m,t[2]+1,t[3]-1});
+
                     }else if(t[3] == 0 && !visitied[n][m][1] && map[n][m] == '0'){
                         visitied[n][m][1] = true;
                         queue.add(new Integer[]{n,m,t[2]+1,0});
@@ -66,10 +73,14 @@ public class BFS_2206 {
  * 각 노드는 벽을 부섰거나 안부섰거나의 정보를 담고 있음
  * 근데 벽을 부쉈거나 안 부순 상태에 따라서 visitied는 가변적이게됨
  * 우선적으로 벽을 부순적이 없다면 0인 장소들을 무적권적으로 방문해야함 (고정 visitied) 그래야 부순적 없는 벽들을 한번씩 건들여봄
- *                      0
- *                  (상 하 좌 우)
- *  (상 하 좌 우),(상 하 좌 우),(상 하 좌 우),(상 하 좌 우) 이 노드 어딘가에 존재하는 N,M의 좌표
  *
  *
+ *                      0 // 1
+ *                   (1 , 2) // 2
+ *  (하 우),(12 하 좌 우),(상 하 좌 우),(상 하 좌 우)// 3 이 노드 어딘가에 존재하는 N,M의 좌표
  *
+ *  1 , 22 333333 ,444 555
+ *
+ *  1 22 44 33 6 55
  */
+
