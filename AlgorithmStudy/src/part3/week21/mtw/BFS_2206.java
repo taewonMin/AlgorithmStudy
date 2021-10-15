@@ -3,13 +3,12 @@ package part3.week21.mtw;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class BFS_2206 {
     public static int[][] map;
+    public static boolean[][][] visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,6 +17,7 @@ public class BFS_2206 {
         int N = Integer.parseInt(input.split(" ")[0]);
         int M = Integer.parseInt(input.split(" ")[1]);
         map = new int[N][M];
+        visited = new boolean[N][M][2];
 
         for(int i=0; i<N; i++){
             String[] row = br.readLine().split("");
@@ -32,37 +32,34 @@ public class BFS_2206 {
     }
 
     public static int bfs(int N, int M){
+        if(N==1 && M==1) return 1;
+        
         int[] dn = {-1,1,0,0}; // 상하
         int[] dm = {0,0,-1,1}; // 좌우
-        Queue<Object[]> queue = new LinkedList<>();
-        List<String> list = new ArrayList<>();
-        list.add("00");
-        queue.offer(new Object[]{0,0,1,true,list});    // n,m,distance,isBroken,지나온 경로 좌표배열
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(new Node(0,0,1,0));    // n,m,distance,isBroken
+        visited[0][0][0] = true;
+        visited[0][0][1] = true;
 
         while(!queue.isEmpty()){
-            Object[] data = queue.poll();
-            int distance = (int)data[2];
-            boolean isBroken = (boolean)data[3];
-            List<String> path = (List<String>)data[4];
+            Node node = queue.poll();
             for(int i=0; i<dn.length; i++){
-                int n = (int)data[0]+dn[i];
-                int m = (int)data[1]+dm[i];
-                
+                int n = node.n+dn[i];
+                int m = node.m+dm[i];
+                int isBroken = node.isBroken;
 
                 if(n==N-1 && m==M-1){
-                    return distance+1;
+                    return node.distance+1;
                 }
-                if(boundaryCheck(n, m, N, M) && path.contains(n+""+m)==false){
-                    List<String> pathCopy = new LinkedList<>();
-                    pathCopy.addAll(path);
-                    pathCopy.add(n+""+m);
-                    if(map[n][m] == 0){
-                        queue.offer(new Object[]{n,m,distance+1,isBroken,pathCopy});
-                    }else{
-                        if(isBroken){  // 뚫을수 있으면
-                            queue.offer(new Object[]{n,m,distance+1,false,pathCopy});
+                if(boundaryCheck(n, m, N, M) && visited[n][m][isBroken]==false){
+                    if(map[n][m] == 1){
+                        if(isBroken == 1){  // 뚫을수 없으면
+                            continue;
                         }
+                        isBroken = 1;
                     }
+                    visited[n][m][isBroken] = true;
+                    queue.offer(new Node(n,m,node.distance+1,isBroken));
                 }
             }
         }
@@ -72,6 +69,20 @@ public class BFS_2206 {
     public static boolean boundaryCheck(int i, int j, int N, int M){
         return -1<i && i<N && -1<j && j<M;
     }
+}
+
+class Node{
+    int n;
+    int m;
+    int distance;
+    int isBroken; // 0이면 부술 수 있음
+
+    Node(int n, int m, int distance, int isBroken){
+        this.n = n;
+        this.m = m;
+        this.distance = distance;
+        this.isBroken = isBroken;
+    };
 }
 
 /*
