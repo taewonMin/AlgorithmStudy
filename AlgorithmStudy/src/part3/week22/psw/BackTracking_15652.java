@@ -11,7 +11,7 @@ public class BackTracking_15652 {
         sc.close();
 
         int[] numbers = new int[m];
-        Arrays.fill(numbers,1);
+        Arrays.fill(numbers,1); // 3 3 3 = 9 +1
         while (m*n+1 != Arrays.stream(numbers).sum()){
             StringBuffer sb = new StringBuffer();
             boolean flag = true;

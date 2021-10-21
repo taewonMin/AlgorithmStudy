@@ -22,9 +22,9 @@ public class BFS_7562 {
     }
 
     private static void bfs(Integer[] now, Integer[] target) {
-        Queue<int[]> queue = new LinkedList<>();
+        Queue<Integer[]> queue = new LinkedList<>();
         visitied[now[0]][now[1]] = true;
-        queue.offer(new int[]{now[0],now[1],0});
+        queue.offer(new Integer[]{now[0],now[1],0});
         int[][] go = {{-2,1},{-1,2},
                 {1,2},{2,1},
                 {2,-1},{1,-2},
@@ -32,7 +32,7 @@ public class BFS_7562 {
         };
 
         while (!queue.isEmpty()){
-            int[] t = queue.poll();
+            Integer[] t = queue.poll();
 
             if(t[0] == target[0] && t[1] == target[1]){
                 System.out.println(t[2]);
@@ -45,7 +45,7 @@ public class BFS_7562 {
 
                 if(bChk(x, y) && visitied[x][y] == false){
                     visitied[x][y] = true;
-                    queue.offer(new int[]{x,y,t[2]+1});
+                    queue.offer(new Integer[]{x,y,t[2]+1});
                 }
             }
         }
