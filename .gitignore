@@ -4,3 +4,6 @@
 **/.iml
 **/.xml
 **/.json
+.project
+.settings/org.eclipse.jdt.core.prefs
+AlgorithmStudy/.project
