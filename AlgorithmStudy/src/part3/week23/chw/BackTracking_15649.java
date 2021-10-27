@@ -24,6 +24,7 @@ public class BackTracking_15649 {
     		if(!visited[i]) {
     			visited[i] = true;
     			arr[depth] = i + 1;
+    			dfs(N, M, depth + 1);
     			visited[i] = false;
     		}
     	}
