@@ -4,35 +4,38 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BackTracking_15649 {
-
-    static Scanner sc = new Scanner(System.in);
-    static int n = sc.nextInt();
-    static int m = sc.nextInt();
-
+    static int n;
+    static int m;
+    static int[] arr = null;
+    static boolean[] visited = null;
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
 
-        //for (int i = 1; i <= n; i++) {
-            checkBefore(0);
-        //}
+        arr = new int[m];
+        visited = new boolean[n];
+        dfs(0);
         sc.close();
+
     }
-    static int temp = 0;
-    static ArrayList<Integer> resultArray = new ArrayList<>();
-    static void checkBefore(int num){
-        if(resultArray.size() == m){
-            for (int i = 0; i < resultArray.size(); i++) {
-                System.out.println(resultArray.get(i));
+
+    static void dfs(int depth) {
+        if (depth == m){
+            for (int val : arr) {
+                System.out.print(val + " ");
             }
+            System.out.println();
             return;
         }
 
-        for (int i = 0; i < m; i++) {
-            if(resultArray.get(i) == num){
-                checkBefore(num+1);
-            }else {
-                resultArray.add(num);
+        for (int i = 0; i < n; i++) {
+            if(!visited[i]){
+                visited[i] = true;
+                arr[depth] = i + 1;
+                dfs(depth + 1);
+                visited[i] = false;
             }
         }
-
     }
 }
