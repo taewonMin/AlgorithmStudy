@@ -34,10 +34,10 @@ public class BackTracking_15651 {
 
         for(int i = 0; i < N; i++) {
             // if(!visit[i]) {
-                visit[i] = true;
+                // visit[i] = true;
                 arr[depth] = i + 1;
                 dfs(N, M, depth + 1);
-                visit[i] = false;
+                // visit[i] = false;
             // }
         }
     }
