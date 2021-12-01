@@ -1,43 +1,41 @@
 package part3.week26.psw;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BackTracking_15652 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        sc.close();
 
-	public static int[][][] dp = new int[51][51][51];
+        int[] numbers = new int[m];
+        Arrays.fill(numbers,1); // 3 3 3 = 9 +1
+        while (m*n+1 != Arrays.stream(numbers).sum()){
+            StringBuffer sb = new StringBuffer();
+            boolean flag = true;
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		dp[20][20][20] = 1048576;
-		while (true){
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-			int c = sc.nextInt();
-			if (a == -1 && b == -1 && c == -1) break;
-			System.out.printf("%s%d%s%d%s%d%s%d%s","w(",a,", ",b,", ",c,") = ",w(a,b,c),"\n");
-		}
-		sc.close();
-	}
+            sb.append(numbers[0]);
+            for (int i = 1; i < m; i++) {
+                if (numbers[i-1] > numbers[i]) {
+                    flag = false;
+                    break;
+                }
+                sb.append(" "+numbers[i]);
+            }
+            if (flag) System.out.println(sb);
+            arrPlus(numbers, n);
+        }
+    }
 
-	public static int w(int a, int b, int c){
-		if(a <= 0 || b <= 0 || c <= 0){ // 0보다 작은게 있으면 아예 볼 필요 없음
-			return 1;
-		}else if( a > 20 || b > 20 || c > 20){
-			dp[a][b][c] = dp[20][20][20];
-			return dp[a][b][c];
-		}else if(a < b && b < c){ // 오름차순일떄
-			if (dp[a][b][c-1] == 0) dp[a][b][c-1] = w(a,b,c-1);
-			if (dp[a][b-1][c-1] == 0) dp[a][b-1][c-1] = w(a,b-1,c-1);
-			if (dp[a][b-1][c] == 0) dp[a][b-1][c] = w(a,b-1,c);
-
-			return dp[a][b][c-1] + dp[a][b-1][c-1] - dp[a][b-1][c];
-		}else {
-			if (dp[a-1][b][c] == 0) dp[a-1][b][c] = w(a-1,b,c);
-			if (dp[a-1][b-1][c] == 0) dp[a-1][b-1][c] = w(a-1,b-1,c);
-			if (dp[a-1][b][c-1] == 0) dp[a-1][b][c-1] = w(a-1,b,c-1);
-			if (dp[a-1][b-1][c-1] == 0) dp[a-1][b-1][c-1] = w(a-1,b-1,c-1);
-
-			return  dp[a-1][b][c] + dp[a-1][b-1][c] + dp[a-1][b][c-1] - dp[a-1][b-1][c-1];
-		}
-	}
+    private static void arrPlus(int[] numbers, int n) {
+        numbers[numbers.length-1]++;
+        for (int i = numbers.length-1; i > 0; i--) {
+            if (numbers[i] > n){
+                numbers[i] = 1;
+                numbers[i-1]++;
+            }
+        }
+    }
 }
