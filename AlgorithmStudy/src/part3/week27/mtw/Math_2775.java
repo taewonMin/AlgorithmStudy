@@ -32,6 +32,6 @@ public class Math_2775 {
 
     static int recursion(int k, int n){
         if(dp[k][n] != 0) return dp[k][n];
-        return recursion(k, n-1) + recursion(k-1, n);
+        return dp[k][n] = recursion(k, n-1) + recursion(k-1, n);
     }
 }
