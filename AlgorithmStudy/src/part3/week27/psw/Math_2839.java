@@ -12,9 +12,8 @@ public class Math_2839 {
     // 12880	108
     private static int calc(int n) {
         int t = n/3;
-        if (n==3||n==6||n==9) return t;
-
         int p = n/5;
+        if (n==3||n==6||n==9) return t;
         for (int i = 0; i <= t; i++) {
             for (int j = p; j >= 0; j--) {
                 if (j*5 + i*3 == n) {

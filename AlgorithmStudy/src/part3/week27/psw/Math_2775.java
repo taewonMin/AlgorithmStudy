@@ -13,12 +13,12 @@ public class Math_2775 {
         }
 
         String str = "";
-        apart = setAll();
         for (int i = 0; i < t; i++) {
             int k = sc.nextInt();
             int n = sc.nextInt();
-            str += apart[k][n]+"\n";
+            System.out.println(findNum(k,n));
         }
+
 
 
         System.out.println(str);

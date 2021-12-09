@@ -8,7 +8,10 @@ public class Math_10757 {
         Scanner sc = new Scanner(System.in);
         String[] a = sc.next().split("");
         String[] b = sc.next().split("");
-
+        //61234
+        //61234
+        // 864221
+        // 122468
         StringBuffer sb = new StringBuffer();
         int x = a.length-1;
         int y = b.length-1;
