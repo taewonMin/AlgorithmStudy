@@ -25,13 +25,15 @@ public class Math_3009 {
     
     public static int result(int a, int b, int c) {
     	
-    	if(a == b) {
-    		return c;
-    	}else if(a == c){
-    		return b;
-    	}else {
-    		return a;
-    	}
+//    	if(a == b) {
+//    		return c;
+//    	}else if(a == c){
+//    		return b;
+//    	}else {
+//    		return a;
+//    	}
+    	
+    	return a == b ? c : a == c ? b : a;
     	
     }
 }
