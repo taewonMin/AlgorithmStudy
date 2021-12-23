@@ -38,7 +38,6 @@ public class Math_9020 {
         for (int i = 0; i < data.size(); i++) {
             for (int j = i; j < data.size(); j++) {
                 if (data.get(i)+data.get(j) == n){
-
                     if (gap==null) {
                         gap = new Integer[]{data.get(i),data.get(j)};
                     }else {
@@ -47,7 +46,6 @@ public class Math_9020 {
                             gap[1] = data.get(j);
                         }
                     }
-
                 }
             }
         }
