@@ -14,10 +14,10 @@ public class DP_10844 {
 //      0 -1 -2 -3 -6 -10 -20 -35 -70
 //        Scanner sc = new Scanner(System.in);
 //        sc.close();
-        for (int i = 1; i < 100; i++) {
-            System.out.println(i+" : "+test3(i));
-        }
-//        test(4);
+//        for (int i = 1; i < 100; i++) {
+//            System.out.println(i+" : "+test3(i));
+//        }
+        test2(10);
     }
 
     private static int test(int n) {
@@ -54,7 +54,7 @@ public class DP_10844 {
         }
         return Arrays.stream(dp[n-1]).sum();
     }
-
+//
 //12880	108
     public static int test3(int n){
         int[][] dp = new int[101][11];
@@ -78,3 +78,21 @@ public class DP_10844 {
         return answer;
     }
 }
+/*
+    1  -> 10     56 5~~
+                    7~~
+    2  -> 21
+          23
+    3  ->
+    4
+    5
+    6
+    7
+    8
+    9 -> 98
+
+
+
+
+
+ */

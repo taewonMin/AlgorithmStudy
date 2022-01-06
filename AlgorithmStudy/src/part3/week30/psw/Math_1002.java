@@ -21,8 +21,9 @@ public class Math_1002 {
 
     public static int findContact(int x1,int y1,int r1,int x2,int y2,int r2){
         if (x1==x2&&y1==y2) return r1==r2? -1 : 0; //중점이 같고 같은 원 or 속함
+
         double d = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
-        if (r1+r2==d||Math.abs(r1-r2)==d) return 1; // 외접 or 내접
+        if (r1+r2==d || Math.abs(r1-r2)==d) return 1; // 외접 or 내접
         if (r1+r2 < d || d < Math.abs(r1-r2)) return 0; // 교점 없음
         return 2;
     }
