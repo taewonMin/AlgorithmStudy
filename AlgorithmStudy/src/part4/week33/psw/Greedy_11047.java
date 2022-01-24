@@ -16,13 +16,12 @@ public class Greedy_11047 {
         }
 
         int answer = 0;
-        while (true){
+        while (k != 0){
             if(numbers[maxIdx] <= k){
                 answer += k/numbers[maxIdx];
                 k = k%numbers[maxIdx];
             }
             maxIdx--;
-            if (k == 0) break;
         }
 
         System.out.println(answer);
