@@ -1,46 +1,30 @@
 package part3.week25.psw;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
-
+//11428 73
 public class DP_1003 {
-    static int one;
-    static int two;
-    static int[][] saved = new int[2][41];
+    static int[][] dp = new int[41][2];
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int n = Integer.parseInt(br.readLine());
+        dp[0][0]=1;
+        dp[1][1]=1;
         for (int i = 0; i < n; i++) {
-            int cnt = sc.nextInt();
-            fibonacci(cnt);
-            System.out.println(one+" "+two);
-            one = 0;
-            two = 0;
+            int num = Integer.parseInt(br.readLine());
+            bw.write(get(num,0)+" "+get(num,1)+"\n");
         }
-
+        bw.flush();
     }
 
-    static int fibonacci(int n){
-        if (n == 0) {
-            one++;
-            saved[0][n] = 0;
-            saved[1][n] = 1;
-            return 0;
-        } else if (n == 1) {
-            saved[0][n] = 1;
-            saved[1][n] = 1;
-            return 1;
-        } else {
-
-
-
-            return fibonacci(n-1) + fibonacci(n-2) ;
+    public static int get(int num,int i){
+        if(num<2){
+            return dp[num][i];
+        }else {
+            if (dp[num-1][i]==0) dp[num-1][i] = get(num-1,i);
+            if (dp[num-2][i]==0) dp[num-2][i] = get(num-2,i);
+            return dp[num][i] = dp[num-1][i] + dp[num-2][i];
         }
     }
 }
-/*
-
-
-
- */
