@@ -26,7 +26,7 @@ public class Greedy_11047 {// 동전 0 java 8 11592KB	84ms 1088B
 		for(int i = N-1 ; i >= 0 && nam > 0 ; i--) {
 			if(coins[i] > K) continue;
 			quantity += nam / coins[i];
-			nam = K % coins[i]; // K가 아니라 nam에 대한 나머지를 구해야 한다.
+			nam %= coins[i];
 		}
 		
 		bw.write(String.valueOf(quantity));
