@@ -1,20 +1,22 @@
 package part4.week34.psw;
 
+import java.util.Arrays;
 import java.util.Scanner;
-//12836	124
+//	16328	156
 public class Greedy_11399 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String[] calculations = sc.nextLine().split("-");
-        int answer = 0;
-        for (int i = 0; i < calculations.length; i++) {
-            String[] numbers = calculations[i].split("\\+");
-            int sum = 0;
-            for (int j = 0; j < numbers.length; j++) {
-                sum += Integer.parseInt(numbers[j]);
-            }
-            answer += i>0? -(sum) : sum;
+        int n  = sc.nextInt();
+        int[] numbers = new int[n];
+        for (int i = 0; i < n; i++) {
+            numbers[i] = sc.nextInt();
         }
-        System.out.println(answer);
+        Arrays.sort(numbers);
+        int sum = numbers[0];
+        for (int i = 1; i < n; i++) {
+            numbers[i] += numbers[i-1];
+            sum += numbers[i];
+        }
+        System.out.println(sum);
     }
 }
