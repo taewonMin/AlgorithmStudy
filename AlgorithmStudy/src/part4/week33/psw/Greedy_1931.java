@@ -1,8 +1,6 @@
 package part4.week33.psw;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Greedy_1931 {
@@ -15,46 +13,35 @@ public class Greedy_1931 {
         }
 
         Arrays.sort(meetings,(a,b)->{
-            if (a.gap==b.gap) return Integer.compare(a.start,b.start);
-            return Integer.compare(a.gap,b.gap);
+            if (a.end==b.end) return Integer.compare(a.start,b.start);
+            return Integer.compare(a.end,b.end);
         });
 
-        List<Meeting> list = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            boolean flag = true;
-            for (int j = 0; j < list.size(); j++) {
-                if (meetings[i].contains(list.get(j))){
-                    flag = false;
-                    break;
-                }
+        int max= meetings[0].end, answer=1;
+        for (int i = 1; i < n; i++) {
+            if (meetings[i].end >= max && meetings[i].start >= max){
+                answer++;
+                max = meetings[i].end;
             }
-            if (flag) list.add(meetings[i]);
         }
-        System.out.println(list.size());
+        System.out.println(answer);
     }
 }
 
 class Meeting{
     int start;
     int end;
-    int gap;
 
     public Meeting(int start, int end) {
         this.start = start;
         this.end = end;
-        this.gap = end-start;
-    }
-
-    public boolean contains(Meeting meeting){
-        if (this.start <= meeting.start && meeting.end <= this.end ) return false;
-        return true;
     }
 }
 /*
 11
 1 4
-3 5
-0 6
+3 4
+4 4
 5 7
 3 8
 5 9
