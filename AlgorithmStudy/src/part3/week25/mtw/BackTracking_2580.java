@@ -50,8 +50,8 @@ public class BackTracking_2580{
         }
 
         // 정사각형 탐색
-        for(){
-            
-        }
+//        for(){
+//
+//        }
     }
 }
