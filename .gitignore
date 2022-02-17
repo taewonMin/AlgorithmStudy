@@ -58,5 +58,5 @@ buildNumber.properties
 ### Project ###
 globals.properties
 package.json
-*/.classpath
-*/.project
+/*/.classpath
+/*/.project
