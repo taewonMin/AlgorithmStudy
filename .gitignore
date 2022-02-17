@@ -1,9 +1,59 @@
-/bin/
-**/.classpath
-**/.project
-**/.iml
-**/.xml
-**/.json
+### STS ###
+.apt_generated
+.classpath
+.factorypath
 .project
-.settings/org.eclipse.jdt.core.prefs
-AlgorithmStudy/.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Log file
+*.log
+
+### Java ###
+# Compiled class file
+*.class
+
+### Project ###
+globals.properties
