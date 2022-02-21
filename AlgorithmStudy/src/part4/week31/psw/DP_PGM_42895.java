@@ -8,7 +8,6 @@ public class DP_PGM_42895 {
         int number = 11111111;
         int answer = dp2(N,number);
         System.out.println(answer);
-
     }
 
     public static int ssibal(int N,int number){
@@ -35,7 +34,7 @@ public class DP_PGM_42895 {
     }
 
     public static int ssibal3(int N,int number){
-        int[][] dp = new int[9][];
+        int[][] dp = new int[10][];
         dp[1] = new int[]{N,-N};
         int answer = -1;
         int line = N;
@@ -43,9 +42,8 @@ public class DP_PGM_42895 {
             int length = dp[i-1].length*4+2;
             dp[i] = new int[length];
 
-            for (int j = 0; j < dp[i-1].length; j++) {
+            for (int j = 0; j <= dp[i-1].length; j++) {
                 if (dp[i-1][j] == number) return i-1;
-
                 dp[i][j*4]   = dp[i-1][j] + N;
                 dp[i][j*4+1] = dp[i-1][j] - N;
                 dp[i][j*4+2] = dp[i-1][j] * N;
@@ -59,6 +57,7 @@ public class DP_PGM_42895 {
     }
 
     /*
+
        2~2,2~3,2~4,2~5,2~6
                3~3,3~4,3~5
                        4~4
@@ -73,8 +72,8 @@ public class DP_PGM_42895 {
 
         for (int i = 2; i <= 9; i++) {
             if (set.contains(number)) return i-1;
-
             dp[i] = new ArrayList<>();
+
             for (int j = 0; j < dp[i-1].size(); j++) {
                 int preNum = dp[i-1].get(j);
                 addNum(preNum+N,i);
@@ -82,7 +81,8 @@ public class DP_PGM_42895 {
                 addNum(preNum*N,i);
                 addNum(preNum/N,i);
             }
-            line = line*10 + N;
+
+            line = line*10 + N;// N, NN, NNN
             addNum(line,i);
             addNum(-line,i);
 
@@ -97,7 +97,6 @@ public class DP_PGM_42895 {
                 }
             }
         }
-
         return set.contains(number) ? 8 : -1;
     }
 
@@ -113,5 +112,12 @@ public class DP_PGM_42895 {
 -2N,-N*N,-N/N,(-N+N)       4
 NN, -NN                    2
 
+N+(10), N*(10), N-(10),N/(10)
+NNN,-NNN
+-> 40 + 2
+
 3N,N+N*N,N+N/N,N-2N,
+======================
+
+NN+ -NN, 2N+(N/N)
  */

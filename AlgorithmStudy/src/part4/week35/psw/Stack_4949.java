@@ -15,18 +15,22 @@ public class Stack_4949 {
             for (int i = str.length()-1; i > -1 ; i--) {
                 char ch = str.charAt(i);
                 if (ch == ')' || ch == ']'){ stack.push(ch); }
+
                 if (ch == '('){
                     if (!stack.isEmpty() && ')' == stack.peek()){
                         stack.pop();
                     }else {
                         answer = "no";
+                        break;
                     }
                 }
+
                 if (ch == '['){
                     if (!stack.isEmpty() && ']' == stack.peek()){
                         stack.pop();
                     }else {
                         answer = "no";
+                        break;
                     }
                 }
             }

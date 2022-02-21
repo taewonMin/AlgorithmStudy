@@ -22,6 +22,6 @@ public class Stack_9012 {
                 idx++;
             }
         }
-        System.out.println(idx==n ? sb.toString() : "NO");
+        System.out.println(idx==n ? sb : "NO");
     }
 }

@@ -1,6 +1,8 @@
 package part4.week31.psw;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 //32640	448
 public class DP_2156 {

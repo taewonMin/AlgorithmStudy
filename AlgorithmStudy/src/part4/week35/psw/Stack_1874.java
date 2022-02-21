@@ -20,6 +20,7 @@ public class Stack_1874 {
                         stack.pop();
                     }else {
                         answer="NO";
+                        break;
                     }
                 }
             }

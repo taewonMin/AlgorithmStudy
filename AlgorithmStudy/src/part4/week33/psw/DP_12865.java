@@ -22,22 +22,20 @@ public class DP_12865 {
         }
         System.out.println(dp[k]);
     }
+// 0 1 2 3 4 5 6 7
+//       6 8 12 13
 
     public static void test2(){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(), k = sc.nextInt();
-        int[] dp = new int[k+1], weight = new int[n+1], value = new int[n+1],dp2 = new int[k+1];
+        int[] dp = new int[k+1], weight = new int[n+1], value = new int[n+1];
         for (int i = 1; i <= n; i++) {
             weight[i] = sc.nextInt();
             value[i]  = sc.nextInt();
         }
-
-        for (int i = 1; i <= n; i++) {
-            for (int j = 0; j + weight[i] <= k; j++) {
-                dp2[j+weight[i]] = Math.max(dp2[j+weight[i]],dp2[j]+value[i]);
-            }
-        }
-
+/*
+    1 2 3 4 5 6 7
+ */
         for (int i = 1; i <= n; i++) {
             for (int j = k; j - weight[i] >= 0; j--) {
                 dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
@@ -51,6 +49,6 @@ public class DP_12865 {
 4 7
 6 13
 4 8
-3 4
+3 3
 5 12
  */

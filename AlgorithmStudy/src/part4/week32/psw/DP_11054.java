@@ -29,8 +29,8 @@ public class DP_11054 {
             }
             asc[i] = max +1;
             desc[reIdx] = min +1;
-        }
 
+        }
         for (int i = 0; i < length; i++) {
             answer = Math.max(answer,desc[i]+asc[i]-1);
         }

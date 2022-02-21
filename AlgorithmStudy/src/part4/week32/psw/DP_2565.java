@@ -21,7 +21,7 @@ public class DP_2565 {
             }
             dp[i] = max +1;
         }
-        System.out.println(length-Arrays.stream(dp).max().getAsInt());
+        System.out.println(length - Arrays.stream(dp).max().getAsInt());
         sc.close();
     }
 

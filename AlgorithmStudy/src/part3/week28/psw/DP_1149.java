@@ -1,5 +1,6 @@
 package part3.week28.psw;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class DP_1149 {
@@ -12,7 +13,7 @@ public class DP_1149 {
             dp[i][1] = Math.min(dp[i-1][0],dp[i-1][2]) + sc.nextInt();
             dp[i][2] = Math.min(dp[i-1][0],dp[i-1][1]) + sc.nextInt();
         }
-        System.out.println(Math.min(dp[n][0],Math.min(dp[n][1],dp[n][2])));
+        System.out.println(Arrays.stream(dp[n]).min().getAsInt());
         sc.close();
     }
 }
