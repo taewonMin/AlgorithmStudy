@@ -18,7 +18,7 @@ public class Queue_11866 {
         }
         sb.append("<");
         while (queue.size() != 1) {
-            for (int i = 0; i < k; i++) {
+            for (int i = 0; i < k-1; i++) {
                 int first = queue.poll();
                 queue.add(first);
             }
