@@ -6,7 +6,6 @@ import java.util.Scanner;
 //	23820	156
 public class Queue_11866 {
     public static void main(String[] args) {
-        // 시간복잡도 2N으로 해결이 가능 할까? 몰겠는뎅
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(), k = sc.nextInt();
         Queue<Integer> queue = new LinkedList<>();

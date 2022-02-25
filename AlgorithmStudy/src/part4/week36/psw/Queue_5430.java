@@ -14,17 +14,14 @@ public class Queue_5430 {
             StringBuffer sb = new StringBuffer();
             String function = br.readLine();
             int n = Integer.parseInt(br.readLine());
-            int[] numbers = new int[n];
-            String[] line = br.readLine().replace("[","").replace("]","").split(",");
 
-            for (int j = 0; j < n; j++) {
-                numbers[j] = Integer.parseInt(line[j]);
-            }
+            String[] numbers = br.readLine().replace("[","").replace("]","").split(",");
 
             int startIdx = 0, endIdx = n-1;
             boolean isUpsideDown = false;
             String str = "[]";
             for (int j = 0; j < function.length(); j++) {
+
                 if (function.charAt(j) == 'R'){
                     isUpsideDown = !isUpsideDown;
                 }else {
