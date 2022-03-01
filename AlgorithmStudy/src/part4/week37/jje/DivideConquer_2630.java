@@ -25,30 +25,25 @@ public class DivideConquer_2630 {
     static void recursive (int rowIndex, int colIndex, int row, int col){
 
         int first = arr[rowIndex][colIndex];
-        boolean con = true;
+        int newRow = rowIndex + (row - rowIndex) / 2;
+        int newCol = colIndex + (col - colIndex) / 2;
+
         Loop1 :
         for (int i = rowIndex; i < row; i++) {
             for (int j = colIndex; j < col; j++) {
                 if (arr[i][j] != first) {
-                    con = false;
-                    break Loop1;
+                    recursive(rowIndex, colIndex, newRow, newCol); //0,0 / 4,4
+                    recursive(rowIndex, newCol, newRow, col); // 0,4 / 4,8
+                    recursive(newRow, colIndex, row, newCol); // 4,0 / 8,4
+                    recursive(newRow, newCol, row, col); // 4,4 / 8,8
+                    return;
                 }
             }
         }
-        if (con == true){
-            if(first == 0 ) {
-                white++;
-            } else {
-                black++;
-            }
-            return;
+        if(first == 0 ) {
+            white++;
+        } else {
+            black++;
         }
-        int newRow = rowIndex + (row - rowIndex) / 2;
-        int newCol = colIndex + (col - colIndex) / 2;
-
-        recursive(rowIndex, colIndex, newRow, newCol); //0,0 / 4,4
-        recursive(rowIndex, newCol, newRow, col); // 0,4 / 4,8
-        recursive(newRow, colIndex, row, newCol); // 4,0 / 8,4
-        recursive(newRow, newCol, row, col); // 4,4 / 8,8
     }
 }
