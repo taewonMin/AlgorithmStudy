@@ -1,4 +1,4 @@
-package part4.week36.psw;
+package part4.week38.psw;
 
 import java.util.Scanner;
 
