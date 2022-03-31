@@ -23,8 +23,7 @@ public class BinarySearch_10816 {
             sb.append(map.get(x) == null ? 0 : map.get(x));
             sb.append(" ");
         }
-
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 
     private static int binarySearch(int[] numbers, int target) {

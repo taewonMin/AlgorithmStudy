@@ -21,13 +21,13 @@ public class BinarySearch_1920 {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < M; i++) {
             int target = sc.nextInt();
-            sb.append(binarySearch(target)+"\n");
+            sb.append(Arrays.binarySearch(numbers,target)+"\n");
         }
         System.out.println(sb);
     }
 
     private static int binarySearch(int target) {
-        int low =0, high = numbers.length-1;
+        int low = 0, high = numbers.length-1;
         while (low <= high){
             int mid = (low+high)/2;
             if (numbers[mid]==target){
