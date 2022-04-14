@@ -22,3 +22,8 @@ public class PQ_11279 {
         System.out.println(sb);
     }
 }
+/*
+     0
+   0  0
+
+ */
