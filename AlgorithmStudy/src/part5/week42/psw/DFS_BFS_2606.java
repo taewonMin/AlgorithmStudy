@@ -26,7 +26,6 @@ public class DFS_BFS_2606 {
         return 0;
     }
 
-
     private static int bfs() {
         int cnt = 0;
         Queue<Integer> queue = new LinkedList<>();
