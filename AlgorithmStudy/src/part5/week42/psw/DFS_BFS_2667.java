@@ -21,7 +21,7 @@ public class DFS_BFS_2667 {
             for (int j = 0; j < n; j++) {
                 if (map[i][j] != 0 && !visited[i][j]){
                     //answer.add(bfs(i,j));
-                    answer.add(dfs(i,j,1));
+                    answer.add(bfs(i,j));
                 }
             }
         }
@@ -56,7 +56,7 @@ public class DFS_BFS_2667 {
     private static int bfs(int i,int j) {
         Queue<Integer[]> queue = new LinkedList<>();
         int cnt = 0;
-        queue.add(new Integer[]{i,j});
+        queue.add(new Integer[]{i,j,1});
         visited[i][j] = true;
 
         while (!queue.isEmpty()){
@@ -68,7 +68,7 @@ public class DFS_BFS_2667 {
                 for (int l = -1; l <= 1; l++) {
                     if (k*l != 0) continue;
                     if (boundaryChk(x+k,y+l) && !visited[x+k][y+l] && map[x+k][y+l] !=0){
-                        queue.add(new Integer[]{x+k,y+l});
+                        queue.add(new Integer[]{x+k,y+l,idxes[2]+1});
                         visited[x+k][y+l]= true;
                     }
                 }

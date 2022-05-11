@@ -17,7 +17,7 @@ public class PGM_로또_순위 {
             set.add(win_nums[i]);
         }
         int zero = 0, hit = 0;
-        Arrays.sort(lottos);
+
         for (int i = 0; i < 6; i++) {
             if (lottos[i]==0){
                 zero++;
