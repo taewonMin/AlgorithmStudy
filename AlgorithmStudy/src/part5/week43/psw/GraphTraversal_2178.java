@@ -6,7 +6,8 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
-//	21252	312
+
+//21252	312
 public class GraphTraversal_2178 {
     static int[][] map;
     static boolean[][] visited;
@@ -42,7 +43,6 @@ public class GraphTraversal_2178 {
                 }
             }
         }
-
         return 0;
     }
 
