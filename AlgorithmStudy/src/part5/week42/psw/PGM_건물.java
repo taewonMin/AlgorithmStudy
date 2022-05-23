@@ -22,7 +22,7 @@ public class PGM_건물 {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if(j != 0) prefix[i][j] += prefix[i][j-1];
-                if (board[i][j] + prefix[i][j]> 0) result++;
+                if (board[i][j] + prefix[i][j] > 0) result++;
             }
         }
         return result;
