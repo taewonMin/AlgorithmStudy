@@ -18,12 +18,11 @@ public class PrefixSum_16139 {
                 prefixSum[j][i+1] = prefixSum[j][i] + (s[i]-'a' == j ? 1 : 0);
             }
         }
-
         StringBuffer sb = new StringBuffer();
         int q = Integer.parseInt(br.readLine());
         for (int i = 0; i < q; i++) {
             String[] line = br.readLine().split(" ");
-            char ch = line[0].toCharArray()[0];
+            char ch = line[0].charAt(0);
             int l = Integer.parseInt(line[1]), r = Integer.parseInt(line[2]);
             sb.append(prefixSum[ch-'a'][r+1]- prefixSum[ch-'a'][l] +"\n");
         }
