@@ -2,10 +2,11 @@ package part5.week42.psw;
 
 public class PGM_건물 {
     public static void main(String[] args) {
-//        int[][] board = {{5,5,5,5,5},{5,5,5,5,5},{5,5,5,5,5},{5,5,5,5,5}};
-//        int[][] skill = {{1,0,0,3,4,4},{1,2,0,2,3,2},{2,1,0,3,1,2},{1,0,1,3,3,1}};
-        int[][] board = {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}};
-        int[][] skill = {{2,0,0,1,1,1},{2,1,1,2,2,2},{2,2,2,3,3,3},{2,3,3,4,4,4}};
+        int[][] board = {{5,5,5,5,5},{5,5,5,5,5},{5,5,5,5,5},{5,5,5,5,5}};
+        int[][] skill = {{1,0,0,3,4,4},{1,2,0,2,3,2},{2,1,0,3,1,2},{1,0,1,3,3,1}};
+//        int[][] board = {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}};
+//        int[][] board = {{1, 2 ,3 ,4},{2 ,3 ,4 ,5},{3 ,4 ,5 ,6},{4, 5 ,6 ,7}};
+//        int[][] skill = {{0,0,0,3,3,0}};
         int answer = 10;
         int result = new PGM_건물().solution2(board,skill);
     }
@@ -21,10 +22,12 @@ public class PGM_건물 {
         int result = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
+                CNT++;
                 if(j != 0) prefix[i][j] += prefix[i][j-1];
                 if (board[i][j] + prefix[i][j] > 0) result++;
             }
         }
+        System.out.println(CNT);
         return result;
     }
 
@@ -32,6 +35,7 @@ public class PGM_건물 {
         int action = skill[0]==1 ? -skill[5] : skill[5];
         int a1 = skill[1], b1 = skill[2], a2 = skill[3], b2 = skill[4];
         for (int i = a1; i <= a2; i++) {
+            CNT++;
             prefix[i][b1] += action;
             prefix[i][b2+1] += -action;
         }
@@ -41,7 +45,9 @@ public class PGM_건물 {
     static int[][] sum;
     static int N, M;
 
+    static int CNT;
     public int solution2(int[][] board, int[][] skill) {
+
         N = board.length;
         M = board[0].length;
 
@@ -55,6 +61,7 @@ public class PGM_건물 {
             sum[y1][x2 + 1]     += (degree * -1);
             sum[y2 + 1][x1]     += (degree * -1);
             sum[y2 + 1][x2 + 1] += degree;
+            CNT++;
         }
         operate();
 
@@ -62,9 +69,11 @@ public class PGM_건물 {
         int answer = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
+                CNT++;
                 if (board[i][j] + sum[i][j] > 0) answer++;
             }
         }
+        System.out.println(CNT);
         return answer;
     }
 
@@ -74,12 +83,14 @@ public class PGM_건물 {
         for (int y = 1; y < N; y++) {
             for (int x = 0; x < M; x++) {
                 sum[y][x] += sum[y - 1][x];
+                CNT++;
             }
         }
         // 좌우
         for (int x = 1; x < M; x++) {
             for (int y = 0; y < N; y++) {
                 sum[y][x] += sum[y][x - 1];
+                CNT++;
             }
         }
     }
