@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+// 최단경로
 public class Dijkstra_1504 {
     static class Node {
         int index;
