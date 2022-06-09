@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 // 타임머신
-public class Dijkstra_11657 {
+public class BellmanFord_11657 {
     public static class Node {
         int from;
         int to;
