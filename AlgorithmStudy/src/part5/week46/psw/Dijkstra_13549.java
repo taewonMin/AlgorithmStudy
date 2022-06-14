@@ -17,7 +17,6 @@ public class Dijkstra_13549 {
         int start = sc.nextInt(), end = sc.nextInt();
         int[] dp = new int[1000001];
         Arrays.fill(dp,Integer.MAX_VALUE);
-        boolean[] visited = new boolean[100001];
 
         PriorityQueue<Node> queue = new PriorityQueue<>((a1,a2) -> {return Integer.compare(a1.dist,a2.dist);});
         queue.add(new Node(start,0));
@@ -25,11 +24,10 @@ public class Dijkstra_13549 {
 
         while (!queue.isEmpty()){
             Node poll = queue.poll();
-            visited[poll.idx] = true;
             int[] idx = {poll.idx*2,poll.idx+1,poll.idx-1};
 
             for (int i = 0; i < 3; i++) {
-                if (boundaryChk(idx[i]) && !visited[idx[i]] && dp[idx[i]] > dp[poll.idx] + (i==0?0:1)){
+                if (boundaryChk(idx[i]) && dp[idx[i]] > dp[poll.idx] + (i==0?0:1)){
                     queue.offer(new Node(idx[i], dp[idx[i]] = dp[poll.idx] + (i==0?0:1)));
                 }
             }

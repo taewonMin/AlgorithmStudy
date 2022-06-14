@@ -26,10 +26,12 @@ public class Dijkstra_9370 {
             h = sc.nextInt();
             int[] dp = new int[n+1];
             graph = new List[n+1];
+
             for (int j = 1; j <= n; j++) {
                 dp[j] = Integer.MAX_VALUE;
                 graph[j] = new ArrayList<>();
             }
+
             for (int j = 0; j < m; j++) {
                 int a = sc.nextInt(), b = sc.nextInt(), d = sc.nextInt();
                 graph[a].add(new Node(b,d));
@@ -41,9 +43,10 @@ public class Dijkstra_9370 {
             for (int j = 0; j < t; j++) {
                 int x = sc.nextInt();
                 int[] first = dijkstra(s,x,dp.clone());
-                h = first[g] > first[h] ? g : h;
-                int[] second = dijkstra(h,x,dp.clone());
-                if (first[x] == first[h] + second[x]) answer.add(x);
+                int y = first[g] > first[h] ? g : h;
+                int[] second = dijkstra(y,x,dp.clone());
+
+                if (first[x] == first[y] + second[x]) answer.add(x);
             }
 
             answer.sort(Integer::compare);
@@ -80,3 +83,28 @@ public class Dijkstra_9370 {
     }
 
 }
+/*
+2
+5 4 2
+1 2 3
+1 2 6
+2 3 2
+3 4 4
+3 5 3
+5
+4
+6 10 2
+2 3 1
+1 2 1
+1 3 3
+2 4 4
+2 5 5
+3 4 3
+3 6 2
+4 5 4
+4 6 3
+5 6 7
+2 3 1
+5
+6
+ */

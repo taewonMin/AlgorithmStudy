@@ -22,7 +22,6 @@ public class BellmanFord_11657 {
         long[] dp = new long[n+1];
         List<Node> list = new ArrayList<>();
 
-
         for (int i = 2; i <= n; i++) {
             dp[i] = Integer.MAX_VALUE;
         }
@@ -55,5 +54,4 @@ public class BellmanFord_11657 {
         }
         return false;
     }
-
 }

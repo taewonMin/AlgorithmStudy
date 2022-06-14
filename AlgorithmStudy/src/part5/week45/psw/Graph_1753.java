@@ -18,6 +18,7 @@ public class Graph_1753 {
             dp[i] = Integer.MAX_VALUE;
             graph[i] = new ArrayList<>();
         }
+
         dp[start]=0;
 
         for (int i = 0; i < e; i++) {
