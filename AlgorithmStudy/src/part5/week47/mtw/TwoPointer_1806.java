@@ -69,5 +69,6 @@ public class TwoPointer_1806 {
         }
 
         System.out.println(result==Integer.MAX_VALUE ? 0 : result);
+
     }
 }

@@ -3,7 +3,7 @@ package part5.week47.psw;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class TwoPointer_3273 {
+public class TwoPointer_2470 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -11,20 +11,22 @@ public class TwoPointer_3273 {
         for (int i = 0; i < n; i++) {
             numbers[i] = sc.nextInt();
         }
-        int x = sc.nextInt();
         Arrays.sort(numbers);
-        int start = 0, end = n-1, answer = 0;
-
+        int start = 0, end = n-1, res = Integer.MAX_VALUE;
+        String answer = "";
         while (start < end){
-            if (numbers[start] + numbers[end] == x) answer++;
+            int sum = numbers[start]+numbers[end];
+            if (Math.abs(sum) < Math.abs(res)){
+                res = sum;
+                answer = numbers[start] +" "+numbers[end];
+            }
 
-            if (numbers[start] + numbers[end] < x) {
+            if (sum < 0){
                 start++;
             }else {
                 end--;
             }
         }
-
         System.out.println(answer);
     }
 }
